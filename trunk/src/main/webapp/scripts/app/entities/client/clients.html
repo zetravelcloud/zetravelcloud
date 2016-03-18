@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="zetravelcloudApp.client.home.title">Clients</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="client.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.client.home.createLabel">Create new Client
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="zetravelcloudApp.client.name">Name</span></th>
+                    <th><span translate="zetravelcloudApp.client.email">Email</span></th>
+                    <th><span translate="zetravelcloudApp.client.mobile">Mobile</span></th>
+                    <th><span translate="zetravelcloudApp.client.fax">Fax</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="client in clients track by client.id">
+                    <td><a ui-sref="client.detail({id:client.id})">{{client.id}}</a></td>
+                    <td>{{client.name}}</td>
+                    <td>{{client.email}}</td>
+                    <td>{{client.mobile}}</td>
+                    <td>{{client.fax}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="client.detail({id:client.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="client.edit({id:client.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="client.delete({id:client.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

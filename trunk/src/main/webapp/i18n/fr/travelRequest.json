@@ -1,0 +1,28 @@
+{
+    "zetravelcloudApp": {
+        "travelRequest" : {
+            "home": {
+                "title": "TravelRequests",
+                "createLabel": "Créer un nouveau TravelRequest",
+                "createOrEditLabel": "Créer ou éditer un TravelRequest",
+                "search": "Search for TravelRequest"
+            },
+            "created": "Un nouveau TravelRequest a été créé avec l'identifiant {{ param }}",
+            "updated": "Le TravelRequest avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le TravelRequest avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le TravelRequest {{ id }} ?"
+            },
+            "detail": {
+                "title": "TravelRequest"
+            },
+            "title": "Title",
+            "description": "Description",
+            "checkin": "Checkin",
+            "checkout": "Checkout",
+            "client": "Client",
+            "createdBy": "CreatedBy"
+        }
+    }
+}
+

@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "symbol",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160318025739",
+    "dto": "no",
+    "service": "serviceClass",
+    "pagination": "no"
+}

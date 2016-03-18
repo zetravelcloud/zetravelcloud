@@ -1,0 +1,32 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+		{
+            "fieldId": 3,
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+		{
+            "fieldId": 4,
+            "fieldName": "fax",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160317210122",
+    "dto": "no",
+    "service": "serviceClass",
+    "pagination": "no"
+}

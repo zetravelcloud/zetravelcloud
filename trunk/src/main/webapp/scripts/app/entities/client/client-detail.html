@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="zetravelcloudApp.client.detail.title">Client</span> {{client.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.client.name">Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.client.email">Email</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.email}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.client.mobile">Mobile</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.mobile}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.client.fax">Fax</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.fax}}</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
