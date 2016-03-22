@@ -1,7 +1,7 @@
 package com.zetravelcloud.webapp.config;
 
 import com.zetravelcloud.webapp.config.liquibase.AsyncSpringLiquibase;
-
+import com.zetravelcloud.webapp.repository.GenericJPARepository;
 import com.codahale.metrics.MetricRegistry;
 import com.fasterxml.jackson.datatype.hibernate4.Hibernate4Module;
 import com.zaxxer.hikari.HikariConfig;
@@ -27,7 +27,7 @@ import javax.sql.DataSource;
 import java.util.Arrays;
 
 @Configuration
-@EnableJpaRepositories("com.zetravelcloud.webapp.repository")
+@EnableJpaRepositories(basePackages = "com.zetravelcloud.webapp.repository", repositoryBaseClass = GenericJPARepository.class)
 @EnableJpaAuditing(auditorAwareRef = "springSecurityAuditorAware")
 @EnableTransactionManagement
 public class DatabaseConfiguration {

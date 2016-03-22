@@ -16,6 +16,10 @@
             "detail": {
                 "title": "Hotel"
             },
+            "findHotel": {
+                "title": "Find a hotel",
+                "findHotelBtn": "Find"
+            },
             "name": "Name",
             "address": "Address",
             "stars": "Stars",

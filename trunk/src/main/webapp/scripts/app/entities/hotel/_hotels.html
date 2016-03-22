@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="zetravelcloudApp.hotel.home.title">Hotelsssss</h2>
+    <h2 translate="zetravelcloudApp.hotel.home.title">Hotels</h2>
     <jh-alert></jh-alert>
     <div class="container-fluid">
         <div class="row">
@@ -13,40 +13,20 @@
             </div>
         </div>
     </div>
-
-    <br/>
-    	<form name="findHotelForm" role="form" novalidate ng-submit="findHotel()">
-
-		<div class="form-group">
-			<label class="control-label" translate="zetravelcloudApp.hotel.name"
-				for="field_name">Name</label> <input type="text"
-				class="form-control" name="name" id="field_name"
-				ng-model="hotel.name" />
-		</div>
-
-		<div class="form-group">
-			<label class="control-label" translate="zetravelcloudApp.hotel.stars"
-				for="field_stars">Stars</label> <input type="number"
-				class="form-control" name="stars" id="field_stars"
-				ng-model="hotel.stars" />
-		</div>
-
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-4 no-padding-left">
-					<button type="submit" class="btn btn-info">
-						<span class="glyphicon glyphicon-search"></span>&nbsp;<span
-							translate="zetravelcloudApp.hotel.findHotel.findHotelBtn"> Find
-							Hotel</span>
-					</button>
-				</div>
-			</div>
-		</div>
-	</form>
     <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
-            <tbody>
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="reset()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="zetravelcloudApp.hotel.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="address"><span translate="zetravelcloudApp.hotel.address">Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stars"><span translate="zetravelcloudApp.hotel.stars">Stars</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="provider"><span translate="zetravelcloudApp.hotel.provider">Provider</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="loadPage(page + 1)" infinite-scroll-disabled="links['last'] == page">
                 <tr ng-repeat="hotel in hotels track by hotel.id">
                     <td><a ui-sref="hotel.detail({id:hotel.id})">{{hotel.id}}</a></td>
                     <td>{{hotel.name}}</td>
@@ -75,9 +55,6 @@
                             </button>
                         </div>
                     </td>
-                    <tr ng-repeat="room in hotel.rooms">
-                    {{room.type}}
-                    </tr>
                 </tr>
             </tbody>
         </table>

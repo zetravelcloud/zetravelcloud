@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,19 +70,58 @@ public class HotelResource {
             .body(result);
     }
 
+//    /**
+//     * GET  /hotels -> get all the hotels.
+//     */
+//    @RequestMapping(value = "/hotels",
+//        method = RequestMethod.GET,
+//        produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public ResponseEntity<List<Hotel>> getAllHotels(Pageable pageable, Hotel hotel)
+//        throws URISyntaxException {
+//        log.debug("REST request to get a page of Hotels");
+//        Page<Hotel> page = hotelService.findAll(pageable); 
+//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/hotels");
+//        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+//    }
+
+//    /**
+//     * GET  /hotels -> get all the hotels.
+//     */
+//    @RequestMapping(value = "/hotels",
+//        method = RequestMethod.GET,
+//        produces = MediaType.APPLICATION_JSON_VALUE)
+//    @Timed
+//    public ResponseEntity<List<Hotel>> getAllHotels(Pageable pageable, Hotel hotel)
+//        throws URISyntaxException {
+//    	
+//        log.debug("REST request to get a page of Hotels");
+//        Page<Hotel> page = hotelService.findAll(pageable); 
+//        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/hotels");
+//        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+//    }
+    
+    
     /**
      * GET  /hotels -> get all the hotels.
      */
     @RequestMapping(value = "/hotels",
-        method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+    		method = RequestMethod.GET,
+    		produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<Hotel>> getAllHotels(Pageable pageable)
-        throws URISyntaxException {
-        log.debug("REST request to get a page of Hotels");
-        Page<Hotel> page = hotelService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/hotels");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+    public List<Hotel> findHotelsByExample(Hotel hotel)
+    		throws URISyntaxException {
+    	log.debug("REST request to get a page of Hotels");
+    	// TODO call to APIs
+    	
+    	List<Hotel> hotels= hotelService.findByExample(hotel);
+    	Hotel newHotel = new Hotel();
+    	hotel.setName("Semiramis");
+    	hotel.setId(6L);
+    	hotel.setStars(5);
+    	hotel.setProvider("Booking.com");
+    	hotels.add(newHotel);
+    	return hotels;
     }
 
     /**

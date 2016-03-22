@@ -45,6 +45,18 @@ public class HotelService {
         Page<Hotel> result = hotelRepository.findAll(pageable); 
         return result;
     }
+    
+    /**
+     *  get all the hotels.
+     *  @return the list of entities
+     */
+    @Transactional(readOnly = true) 
+    public List<Hotel> findByExample(Hotel hotel) {
+        log.debug("Request to get all Hotels");
+        List<Hotel> result = hotelRepository.findByExample(hotel);
+        return result;
+    }
+
 
     /**
      *  get one hotel by id.

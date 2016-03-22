@@ -10,5 +10,6 @@
     <include file="classpath:config/liquibase/changelog/20160318015124_added_entity_Hotel.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160318025643_added_entity_Hotel.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160318025739_added_entity_Currency.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160318031941_added_entity_Room.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

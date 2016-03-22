@@ -3,141 +3,119 @@
 angular.module('zetravelcloudApp')
     .config(function ($stateProvider) {
         $stateProvider
-	        .state('findHotel', {
-	            parent: 'entity',
-	            url: '/find-hotel',
-	            data: {
-	                authorities: ['ROLE_USER'],
-	                pageTitle: 'zetravelcloudApp.hotel.home.title'
-	            },
-	            views: {
-	                'content@': {
-	                    templateUrl: 'scripts/app/entities/hotel/find-hotel.html',
-	                    controller: 'HotelController'
-	                }
-	            },
-	            resolve: {
-	                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-	                    $translatePartialLoader.addPart('hotel');
-	                    $translatePartialLoader.addPart('global');
-	                    return $translate.refresh();
-	                }]
-	            }
-	        })
-            .state('hotel', {
+            .state('room', {
                 parent: 'entity',
-                url: '/hotels',
+                url: '/rooms',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'zetravelcloudApp.hotel.home.title'
+                    pageTitle: 'zetravelcloudApp.room.home.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/hotel/hotels.html',
-                        controller: 'HotelController'
+                        templateUrl: 'scripts/app/entities/room/rooms.html',
+                        controller: 'RoomController'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('hotel');
+                        $translatePartialLoader.addPart('room');
                         $translatePartialLoader.addPart('global');
                         return $translate.refresh();
                     }]
                 }
             })
-            .state('hotel.detail', {
+            .state('room.detail', {
                 parent: 'entity',
-                url: '/hotel/{id}',
+                url: '/room/{id}',
                 data: {
                     authorities: ['ROLE_USER'],
-                    pageTitle: 'zetravelcloudApp.hotel.detail.title'
+                    pageTitle: 'zetravelcloudApp.room.detail.title'
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'scripts/app/entities/hotel/hotel-detail.html',
-                        controller: 'HotelDetailController'
+                        templateUrl: 'scripts/app/entities/room/room-detail.html',
+                        controller: 'RoomDetailController'
                     }
                 },
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('hotel');
+                        $translatePartialLoader.addPart('room');
                         return $translate.refresh();
                     }],
-                    entity: ['$stateParams', 'Hotel', function($stateParams, Hotel) {
-                        return Hotel.get({id : $stateParams.id});
+                    entity: ['$stateParams', 'Room', function($stateParams, Room) {
+                        return Room.get({id : $stateParams.id});
                     }]
                 }
             })
-            .state('hotel.new', {
-                parent: 'hotel',
+            .state('room.new', {
+                parent: 'room',
                 url: '/new',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/hotel/hotel-dialog.html',
-                        controller: 'HotelDialogController',
+                        templateUrl: 'scripts/app/entities/room/room-dialog.html',
+                        controller: 'RoomDialogController',
                         size: 'lg',
                         resolve: {
                             entity: function () {
                                 return {
-                                    name: null,
-                                    address: null,
-                                    stars: null,
-                                    provider: null,
+                                    type: null,
+                                    nbOfAdults: null,
+                                    price: null,
                                     id: null
                                 };
                             }
                         }
                     }).result.then(function(result) {
-                        $state.go('hotel', null, { reload: true });
+                        $state.go('room', null, { reload: true });
                     }, function() {
-                        $state.go('hotel');
+                        $state.go('room');
                     })
                 }]
             })
-            .state('hotel.edit', {
-                parent: 'hotel',
+            .state('room.edit', {
+                parent: 'room',
                 url: '/{id}/edit',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/hotel/hotel-dialog.html',
-                        controller: 'HotelDialogController',
+                        templateUrl: 'scripts/app/entities/room/room-dialog.html',
+                        controller: 'RoomDialogController',
                         size: 'lg',
                         resolve: {
-                            entity: ['Hotel', function(Hotel) {
-                                return Hotel.get({id : $stateParams.id});
+                            entity: ['Room', function(Room) {
+                                return Room.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('hotel', null, { reload: true });
+                        $state.go('room', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })
                 }]
             })
-            .state('hotel.delete', {
-                parent: 'hotel',
+            .state('room.delete', {
+                parent: 'room',
                 url: '/{id}/delete',
                 data: {
                     authorities: ['ROLE_USER'],
                 },
                 onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                     $uibModal.open({
-                        templateUrl: 'scripts/app/entities/hotel/hotel-delete-dialog.html',
-                        controller: 'HotelDeleteController',
+                        templateUrl: 'scripts/app/entities/room/room-delete-dialog.html',
+                        controller: 'RoomDeleteController',
                         size: 'md',
                         resolve: {
-                            entity: ['Hotel', function(Hotel) {
-                                return Hotel.get({id : $stateParams.id});
+                            entity: ['Room', function(Room) {
+                                return Room.get({id : $stateParams.id});
                             }]
                         }
                     }).result.then(function(result) {
-                        $state.go('hotel', null, { reload: true });
+                        $state.go('room', null, { reload: true });
                     }, function() {
                         $state.go('^');
                     })

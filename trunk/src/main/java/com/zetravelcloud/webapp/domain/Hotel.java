@@ -1,9 +1,18 @@
 package com.zetravelcloud.webapp.domain;
 
 
-import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * A Hotel.
@@ -28,6 +37,9 @@ public class Hotel implements Serializable {
     @Column(name = "provider")
     private String provider;
     
+    @OneToMany(mappedBy="hotel", fetch=FetchType.EAGER)
+    private List<Room> rooms;
+
     public Long getId() {
         return id;
     }
@@ -68,7 +80,15 @@ public class Hotel implements Serializable {
         this.provider = provider;
     }
 
-    @Override
+    public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
