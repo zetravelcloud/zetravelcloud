@@ -1,0 +1,26 @@
+{
+    "zetravelcloudApp": {
+        "proposal" : {
+            "home": {
+                "title": "Proposals",
+                "createLabel": "Créer un nouveau Proposal",
+                "createOrEditLabel": "Créer ou éditer un Proposal",
+                "search": "Search for Proposal"
+            },
+            "created": "Un nouveau Proposal a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Proposal avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Proposal avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Proposal {{ id }} ?"
+            },
+            "detail": {
+                "title": "Proposal"
+            },
+            "checkin": "Checkin",
+            "checkout": "Checkout",
+            "city": "City",
+            "travelRequest": "TravelRequest"
+        }
+    }
+}
+

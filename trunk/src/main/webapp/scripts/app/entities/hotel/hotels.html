@@ -46,12 +46,11 @@
     <br/>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
-            <tbody>
-                <tr ng-repeat="hotel in hotels track by hotel.id">
-                    <td><a ui-sref="hotel.detail({id:hotel.id})">{{hotel.id}}</a></td>
+            <tbody ng-repeat="hotel in hotels track by hotel.id">
+                <tr>
                     <td>{{hotel.name}}</td>
                     <td>{{hotel.address}}</td>
-                    <td>{{hotel.stars}}</td>
+                    <td><img ng-repeat="n in [] | range:hotel.stars" src="assets/images/star_small.png" width="25"/></td>
                     <td>{{hotel.provider}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
@@ -61,7 +60,13 @@
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
-                            <button type="submit"
+							<button type="submit"
+                                    ng-click="addHotelToProposal(hotel)"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <span class="hidden-xs hidden-sm" translate="zetravelcloudApp.hotel.findHotel.addToProposalBtn"></span>
+                            </button>
+<!--                        <button type="submit"
                                     ui-sref="hotel.edit({id:hotel.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
@@ -73,13 +78,27 @@
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
+ -->
                         </div>
                     </td>
-                    <tr ng-repeat="room in hotel.rooms">
-                    {{room.type}}
-                    </tr>
                 </tr>
+                <tr ng-show="hotel.rooms != 0" ng-repeat="room in hotel.rooms">
+                    <td>Room type: {{room.type}}</td>
+                    <td>Nb of Adults{{room.numberOfAdults}}</td>
+                    <td>{{room.price}} {{room.currency.symbol}}</td>
+                </tr>
+                
             </tbody>
         </table>
+    </div>
+    <div ng-show="!proposalIsEmpty()" style="position: fixed; bottom: 1em;left: 1em;">
+    {{nbOfHotelsInProposal()}} hotel(s) in the proposal
+    <br>
+	<button type="submit"
+	        class="btn btn-info btn-sm"> 
+	    <span class="glyphicon glyphicon-eye-open"></span>
+	    <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+	</button>
+    
     </div>
 </div>

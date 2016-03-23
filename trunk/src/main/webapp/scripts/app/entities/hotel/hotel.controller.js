@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zetravelcloudApp')
-    .controller('HotelController', function ($scope, $state, Hotel, ParseLinks) {
+    .controller('HotelController', function ($scope, $state, Hotel, ParseLinks, ProposalService) {
 
         $scope.hotels = [];
 //        $scope.predicate = 'id';
@@ -45,4 +45,13 @@ angular.module('zetravelcloudApp')
                 id: null
             };
         };
+        $scope.addHotelToProposal = function(hotel) {
+        	ProposalService.addHotelToProposal(hotel);
+        }
+        $scope.proposalIsEmpty = function(){
+        	return ProposalService.proposalIsEmpty();
+        }
+        $scope.nbOfHotelsInProposal = function(){
+        	return ProposalService.nbOfHotelsInProposal();
+        }
     });

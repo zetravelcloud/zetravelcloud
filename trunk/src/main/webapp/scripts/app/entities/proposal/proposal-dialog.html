@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myProposalLabel" translate="zetravelcloudApp.proposal.home.createOrEditLabel">Create or edit a Proposal</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="proposal.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.proposal.checkin" for="field_checkin">Checkin</label>
+            <input id="field_checkin" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="proposal.checkin" is-open="datePickerForCheckin.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForCheckinOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.proposal.checkout" for="field_checkout">Checkout</label>
+            <input id="field_checkout" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="proposal.checkout" is-open="datePickerForCheckout.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForCheckoutOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label translate="zetravelcloudApp.proposal.city" for="field_city">city</label>
+            <select class="form-control" id="field_city" name="city" ng-model="proposal.city" ng-options="city as city.name for city in citys track by city.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="zetravelcloudApp.proposal.travelRequest" for="field_travelRequest">travelRequest</label>
+            <select class="form-control" id="field_travelRequest" name="travelRequest" ng-model="proposal.travelRequest" ng-options="travelRequest as travelRequest.id for travelRequest in travelrequests track by travelRequest.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

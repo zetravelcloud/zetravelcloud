@@ -1,0 +1,69 @@
+<div>
+    <h2 translate="zetravelcloudApp.proposal.home.title">Proposals</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="proposal.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.proposal.home.createLabel">Create new Proposal
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="checkin"><span translate="zetravelcloudApp.proposal.checkin">Checkin</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="checkout"><span translate="zetravelcloudApp.proposal.checkout">Checkout</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="city.name"><span translate="zetravelcloudApp.proposal.city">city</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="travelRequest.id"><span translate="zetravelcloudApp.proposal.travelRequest">travelRequest</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="proposal in proposals track by proposal.id">
+                    <td><a ui-sref="proposal.detail({id:proposal.id})">{{proposal.id}}</a></td>
+                        <td>{{proposal.checkin | date:'mediumDate'}}</td>
+                        <td>{{proposal.checkout | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="city.detail({id:proposal.city.id})">{{proposal.city.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="travelRequest.detail({id:proposal.travelRequest.id})">{{proposal.travelRequest.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="proposal.detail({id:proposal.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="proposal.edit({id:proposal.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="proposal.delete({id:proposal.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

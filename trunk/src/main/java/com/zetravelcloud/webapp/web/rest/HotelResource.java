@@ -115,12 +115,6 @@ public class HotelResource {
     	// TODO call to APIs
     	
     	List<Hotel> hotels= hotelService.findByExample(hotel);
-    	Hotel newHotel = new Hotel();
-    	hotel.setName("Semiramis");
-    	hotel.setId(6L);
-    	hotel.setStars(5);
-    	hotel.setProvider("Booking.com");
-    	hotels.add(newHotel);
     	return hotels;
     }
 

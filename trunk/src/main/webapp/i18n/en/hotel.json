@@ -18,7 +18,8 @@
             },
             "findHotel": {
                 "title": "Find a hotel",
-                "findHotelBtn": "Find"
+                "findHotelBtn": "Find",
+                "addToProposalBtn": "Add to Proposal"
             },
             "name": "Name",
             "address": "Address",

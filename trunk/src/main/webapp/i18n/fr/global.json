@@ -12,6 +12,10 @@
                 "hotel": "Hotel",
                 "room": "Room",
                 "currency": "Currency",
+                "country": "Country",
+                "city": "City",
+                "proposal": "Proposal",
+                "proposedRoom": "ProposedRoom",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,26 @@
+{
+    "zetravelcloudApp": {
+        "proposedRoom" : {
+            "home": {
+                "title": "ProposedRooms",
+                "createLabel": "Create a new ProposedRoom",
+                "createOrEditLabel": "Create or edit a ProposedRoom",
+                "search": "Search for ProposedRoom"
+            },
+            "created": "A new ProposedRoom is created with identifier {{ param }}",
+            "updated": "A ProposedRoom is updated with identifier {{ param }}",
+            "deleted": "A ProposedRoom is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete ProposedRoom {{ id }}?"
+            },
+            "detail": {
+                "title": "ProposedRoom"
+            },
+            "hotelName": "HotelName",
+            "type": "Type",
+            "url": "Url",
+            "price": "Price",
+            "currency": "Currency"
+        }
+    }
+}
