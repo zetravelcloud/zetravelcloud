@@ -20,7 +20,8 @@
             "type": "Type",
             "url": "Url",
             "price": "Price",
-            "currency": "Currency"
+            "currency": "Currency",
+            "proposal": "Proposal"
         }
     }
 }

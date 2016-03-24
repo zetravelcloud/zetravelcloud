@@ -4,6 +4,7 @@ angular.module('zetravelcloudApp')
     .controller('HotelController', function ($scope, $state, Hotel, ParseLinks, ProposalService) {
 
         $scope.hotels = [];
+        $scope.searchCriteria = {};
 //        $scope.predicate = 'id';
 //        $scope.reverse = true;
 //        $scope.page = 0;
@@ -16,9 +17,11 @@ angular.module('zetravelcloudApp')
 //            });
 //        };
         $scope.findHotel = function(){
-            Hotel.query($scope.hotel, function(result) {
+            Hotel.query($scope.searchCriteria.hotel, function(result) {
                  $scope.hotels = result;
             });
+            ProposalService.setProposalAttributes($scope.searchCriteria.checkin, $scope.searchCriteria.checkout);
+
         };
         $scope.reset = function() {
             $scope.page = 0;

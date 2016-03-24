@@ -2,6 +2,9 @@ package com.zetravelcloud.webapp.domain;
 
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -34,6 +37,11 @@ public class ProposedRoom implements Serializable {
     @ManyToOne
     @JoinColumn(name = "currency_id")
     private Currency currency;
+
+    @ManyToOne
+    @JoinColumn(name = "proposal_id")
+    @JsonIgnore
+    private Proposal proposal;
 
     public Long getId() {
         return id;
@@ -81,6 +89,14 @@ public class ProposedRoom implements Serializable {
 
     public void setCurrency(Currency currency) {
         this.currency = currency;
+    }
+
+    public Proposal getProposal() {
+        return proposal;
+    }
+
+    public void setProposal(Proposal proposal) {
+        this.proposal = proposal;
     }
 
     @Override

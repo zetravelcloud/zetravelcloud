@@ -30,6 +30,7 @@
             <column name="price" type="decimal(10,2)"/>
             
             <column name="currency_id" type="bigint"/>
+            <column name="proposal_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
@@ -38,6 +39,12 @@
                                  constraintName="fk_proposedroom_currency_id"
                                  referencedColumnNames="id"
                                  referencedTableName="currency"/>
+
+        <addForeignKeyConstraint baseColumnNames="proposal_id"
+                                 baseTableName="proposed_room"
+                                 constraintName="fk_proposedroom_proposal_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="proposal"/>
 
     </changeSet>
 </databaseChangeLog>

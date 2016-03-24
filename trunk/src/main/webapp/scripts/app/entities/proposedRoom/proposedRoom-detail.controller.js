@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zetravelcloudApp')
-    .controller('ProposedRoomDetailController', function ($scope, $rootScope, $stateParams, entity, ProposedRoom, Currency) {
+    .controller('ProposedRoomDetailController', function ($scope, $rootScope, $stateParams, entity, ProposedRoom, Currency, Proposal) {
         $scope.proposedRoom = entity;
         $scope.load = function (id) {
             ProposedRoom.get({id: id}, function(result) {

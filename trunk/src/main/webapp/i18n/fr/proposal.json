@@ -19,7 +19,8 @@
             "checkin": "Checkin",
             "checkout": "Checkout",
             "city": "City",
-            "travelRequest": "TravelRequest"
+            "travelRequest": "TravelRequest",
+            "proposedRoom": "ProposedRoom"
         }
     }
 }

@@ -24,6 +24,7 @@
                     <th><span translate="zetravelcloudApp.proposedRoom.url">Url</span></th>
                     <th><span translate="zetravelcloudApp.proposedRoom.price">Price</span></th>
                     <th><span translate="zetravelcloudApp.proposedRoom.currency">currency</span></th>
+                    <th><span translate="zetravelcloudApp.proposedRoom.proposal">proposal</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -36,6 +37,9 @@
                     <td>{{proposedRoom.price}}</td>
                     <td>
                         <a ui-sref="currency.detail({id:proposedRoom.currency.id})">{{proposedRoom.currency.symbol}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="proposal.detail({id:proposedRoom.proposal.id})">{{proposedRoom.proposal.city}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

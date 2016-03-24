@@ -1,5 +1,6 @@
 package com.zetravelcloud.webapp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 
 import javax.persistence.*;
@@ -32,6 +33,10 @@ public class Proposal implements Serializable {
     @ManyToOne
     @JoinColumn(name = "travel_request_id")
     private TravelRequest travelRequest;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name = "proposal_id")
+    private Set<ProposedRoom> proposedRooms = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -71,6 +76,14 @@ public class Proposal implements Serializable {
 
     public void setTravelRequest(TravelRequest travelRequest) {
         this.travelRequest = travelRequest;
+    }
+
+    public Set<ProposedRoom> getProposedRooms() {
+        return proposedRooms;
+    }
+
+    public void setProposedRooms(Set<ProposedRoom> proposedRooms) {
+        this.proposedRooms = proposedRooms;
     }
 
     @Override

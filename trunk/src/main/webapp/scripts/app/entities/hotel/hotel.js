@@ -40,6 +40,8 @@ angular.module('zetravelcloudApp')
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('hotel');
+                        $translatePartialLoader.addPart('proposal');
+                        $translatePartialLoader.addPart('proposedRoom');
                         $translatePartialLoader.addPart('global');
                         return $translate.refresh();
                     }]
@@ -140,6 +142,29 @@ angular.module('zetravelcloudApp')
                         $state.go('hotel', null, { reload: true });
                     }, function() {
                         $state.go('^');
+                    })
+                }]
+            })
+            .state('hotel.proposal', {
+                parent: 'hotel',
+                url: '/proposal',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                onEnter: ['$stateParams', '$state', '$uibModal','ProposalService', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/proposal/proposal-dialog.html',
+                        controller: 'ProposalDialogController',
+                        size: 'lg',
+                        resolve: {
+                            entity: function (ProposalService) {
+                                return ProposalService.getProposal();
+                            }
+                        }
+                    }).result.then(function(result) {
+                        $state.go('hotel', null, { reload: true });
+                    }, function() {
+                        $state.go('hotel');
                     })
                 }]
             });

@@ -19,9 +19,13 @@
             "findHotel": {
                 "title": "Find a hotel",
                 "findHotelBtn": "Find",
-                "addToProposalBtn": "Add to Proposal"
+                "addToProposalBtn": "Add to Proposal",
+                "hotelName": "Hotel Name",
+                "stars": "Stars",
+                "checkin": "Checkin date",
+                "checkout": "Checkout date"
             },
-            "name": "Name",
+            "name": "Hotel Name",
             "address": "Address",
             "stars": "Stars",
             "provider": "Provider"

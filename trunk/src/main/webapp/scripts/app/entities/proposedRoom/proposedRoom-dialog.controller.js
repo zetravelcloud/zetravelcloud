@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('zetravelcloudApp').controller('ProposedRoomDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'ProposedRoom', 'Currency',
-        function($scope, $stateParams, $uibModalInstance, entity, ProposedRoom, Currency) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'ProposedRoom', 'Currency', 'Proposal',
+        function($scope, $stateParams, $uibModalInstance, entity, ProposedRoom, Currency, Proposal) {
 
         $scope.proposedRoom = entity;
         $scope.currencys = Currency.query();
+        $scope.proposals = Proposal.query();
         $scope.load = function(id) {
             ProposedRoom.get({id : id}, function(result) {
                 $scope.proposedRoom = result;

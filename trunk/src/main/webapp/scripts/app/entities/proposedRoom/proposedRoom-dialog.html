@@ -44,6 +44,12 @@
                 <option value=""></option>
             </select>
         </div>
+        <div class="form-group">
+            <label translate="zetravelcloudApp.proposedRoom.proposal" for="field_proposal">proposal</label>
+            <select class="form-control" id="field_proposal" name="proposal" ng-model="proposedRoom.proposal" ng-options="proposal as proposal.city for proposal in proposals track by proposal.id">
+                <option value=""></option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">

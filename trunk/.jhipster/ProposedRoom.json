@@ -6,6 +6,13 @@
             "otherEntityName": "currency",
             "relationshipType": "many-to-one",
             "otherEntityField": "symbol"
+        },
+		{
+            "relationshipId": 2,
+            "relationshipName": "proposal",
+            "otherEntityName": "proposal",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "city"
         }
     ],
     "fields": [

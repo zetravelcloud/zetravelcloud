@@ -13,6 +13,14 @@
             "otherEntityName": "travelRequest",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
+        },
+		{
+            "relationshipId": 3,
+            "relationshipName": "proposedRoom",
+			"otherEntityRelationshipName" : "proposal",
+            "otherEntityName": "proposedRoom",
+            "relationshipType": "one-to-many",
+            "otherEntityField": "hotelName"
         }
     ],
     "fields": [

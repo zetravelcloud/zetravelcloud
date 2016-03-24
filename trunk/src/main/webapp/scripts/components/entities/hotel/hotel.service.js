@@ -40,6 +40,14 @@ angular.module('zetravelcloudApp')
         this.nbOfHotelsInProposal = function(){
         	return proposal.proposedRooms.length;
         }
+        
+        this.getProposal = function() {
+        	return proposal;
+        }
+        this.setProposalAttributes = function (checkin, checkout){
+        	proposal.checkin = checkin;
+        	proposal.checkout = checkout;
+        }
 
 	});
 
