@@ -53,6 +53,58 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.date" for="field_date">Date</label>
+            <input id="field_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="travelRequest.date" is-open="datePickerForDate.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.fileId" for="field_fileId">FileId</label>
+            <input type="text" class="form-control" name="fileId" id="field_fileId"
+                    ng-model="travelRequest.fileId"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.dateSentToAccounting" for="field_dateSentToAccounting">DateSentToAccounting</label>
+            <input id="field_dateSentToAccounting" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="travelRequest.dateSentToAccounting" is-open="datePickerForDateSentToAccounting.status.opened"
+            />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="datePickerForDateSentToAccountingOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.status" for="field_status">Status</label>
+            <input type="text" class="form-control" name="status" id="field_status"
+                    ng-model="travelRequest.status"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.paymentType" for="field_paymentType">PaymentType</label>
+            <input type="text" class="form-control" name="paymentType" id="field_paymentType"
+                    ng-model="travelRequest.paymentType"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.numOfAdults" for="field_numOfAdults">NumOfAdults</label>
+            <input type="number" class="form-control" name="numOfAdults" id="field_numOfAdults"
+                    ng-model="travelRequest.numOfAdults"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.numOfchildren" for="field_numOfchildren">NumOfchildren</label>
+            <input type="number" class="form-control" name="numOfchildren" id="field_numOfchildren"
+                    ng-model="travelRequest.numOfchildren"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelRequest.destination" for="field_destination">Destination</label>
+            <input type="text" class="form-control" name="destination" id="field_destination"
+                    ng-model="travelRequest.destination"
+                     />
+        </div>
 
         <div class="form-group">
             <label translate="zetravelcloudApp.travelRequest.client" for="field_client">client</label>

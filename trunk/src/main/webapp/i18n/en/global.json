@@ -22,6 +22,9 @@
                 "main": "Hotels",
                 "findHotel": "Find a Hotel"
             },
+			"config": {
+                "main": "Config"
+            },
             "account": {
                 "main": "Account",
                 "settings": "Settings",

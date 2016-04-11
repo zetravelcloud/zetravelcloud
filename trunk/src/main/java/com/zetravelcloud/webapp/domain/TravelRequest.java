@@ -1,6 +1,7 @@
 package com.zetravelcloud.webapp.domain;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -33,6 +34,30 @@ public class TravelRequest implements Serializable {
     @NotNull
     @Column(name = "checkout", nullable = false)
     private LocalDate checkout;
+    
+    @Column(name = "date")
+    private ZonedDateTime date;
+    
+    @Column(name = "file_id")
+    private String fileId;
+    
+    @Column(name = "date_sent_to_accounting")
+    private ZonedDateTime dateSentToAccounting;
+    
+    @Column(name = "status")
+    private String status;
+    
+    @Column(name = "payment_type")
+    private String paymentType;
+    
+    @Column(name = "num_of_adults")
+    private Integer numOfAdults;
+    
+    @Column(name = "num_ofchildren")
+    private Integer numOfchildren;
+    
+    @Column(name = "destination")
+    private String destination;
     
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -82,6 +107,70 @@ public class TravelRequest implements Serializable {
         this.checkout = checkout;
     }
 
+    public ZonedDateTime getDate() {
+        return date;
+    }
+    
+    public void setDate(ZonedDateTime date) {
+        this.date = date;
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+    
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public ZonedDateTime getDateSentToAccounting() {
+        return dateSentToAccounting;
+    }
+    
+    public void setDateSentToAccounting(ZonedDateTime dateSentToAccounting) {
+        this.dateSentToAccounting = dateSentToAccounting;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+    
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+    
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public Integer getNumOfAdults() {
+        return numOfAdults;
+    }
+    
+    public void setNumOfAdults(Integer numOfAdults) {
+        this.numOfAdults = numOfAdults;
+    }
+
+    public Integer getNumOfchildren() {
+        return numOfchildren;
+    }
+    
+    public void setNumOfchildren(Integer numOfchildren) {
+        this.numOfchildren = numOfchildren;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+    
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
     public Client getClient() {
         return client;
     }
@@ -126,6 +215,14 @@ public class TravelRequest implements Serializable {
             ", description='" + description + "'" +
             ", checkin='" + checkin + "'" +
             ", checkout='" + checkout + "'" +
+            ", date='" + date + "'" +
+            ", fileId='" + fileId + "'" +
+            ", dateSentToAccounting='" + dateSentToAccounting + "'" +
+            ", status='" + status + "'" +
+            ", paymentType='" + paymentType + "'" +
+            ", numOfAdults='" + numOfAdults + "'" +
+            ", numOfchildren='" + numOfchildren + "'" +
+            ", destination='" + destination + "'" +
             '}';
     }
 }

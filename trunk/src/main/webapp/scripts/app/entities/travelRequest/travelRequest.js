@@ -65,6 +65,14 @@ angular.module('zetravelcloudApp')
                                     description: null,
                                     checkin: null,
                                     checkout: null,
+                                    date: null,
+                                    fileId: null,
+                                    dateSentToAccounting: null,
+                                    status: null,
+                                    paymentType: null,
+                                    numOfAdults: null,
+                                    numOfchildren: null,
+                                    destination: null,
                                     id: null
                                 };
                             }

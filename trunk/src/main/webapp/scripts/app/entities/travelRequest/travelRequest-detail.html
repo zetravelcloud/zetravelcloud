@@ -1,6 +1,6 @@
 
 <div>
-    <h2><span translate="zetravelcloudApp.travelRequest.detail.title">TravelRequest</span> #{{travelRequest.id}}</h2>
+    <h2><span translate="zetravelcloudApp.travelRequest.detail.title">TravelRequest</span> {{travelRequest.id}}</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -44,6 +44,70 @@
             </tr>
             <tr>
                 <td>
+                    <span translate="zetravelcloudApp.travelRequest.date">Date</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.date | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.fileId">FileId</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.fileId}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.dateSentToAccounting">DateSentToAccounting</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.dateSentToAccounting | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.status">Status</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.status}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.paymentType">PaymentType</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.paymentType}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.numOfAdults">NumOfAdults</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.numOfAdults}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.numOfchildren">NumOfchildren</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.numOfchildren}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelRequest.destination">Destination</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelRequest.destination}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span translate="zetravelcloudApp.travelRequest.client">client</span>
                 </td>
                 <td>
@@ -60,14 +124,8 @@
             </tr>
             </tbody>
         </table>
-        <div>
-            <button
-            class="btn btn-info"
-            ui-sref="hotel">
-		        <span class="glyphicon glyphicon-search"></span>&nbsp;<span translate="zetravelcloudApp.travelRequest.findHotel"> Find Hotel</span>
-		    </button>
-        </div>
     </div>
+
     <button type="submit"
             onclick="window.history.back()"
             class="btn btn-info">

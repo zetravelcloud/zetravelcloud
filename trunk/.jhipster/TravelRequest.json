@@ -41,9 +41,49 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+		{
+            "fieldId": 5,
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        },
+		{
+            "fieldId": 6,
+            "fieldName": "fileId",
+            "fieldType": "String"
+        },
+		{
+            "fieldId": 7,
+            "fieldName": "dateSentToAccounting",
+            "fieldType": "ZonedDateTime"
+        },
+		{
+            "fieldId": 8,
+            "fieldName": "status",
+            "fieldType": "String"
+        },
+		{
+            "fieldId": 9,
+            "fieldName": "paymentType",
+            "fieldType": "String"
+        },
+		{
+            "fieldId": 10,
+            "fieldName": "numOfAdults",
+            "fieldType": "Integer"
+        },
+		{
+            "fieldId": 10,
+            "fieldName": "numOfchildren",
+            "fieldType": "Integer"
+        },
+		{
+            "fieldId": 11,
+            "fieldName": "destination",
+            "fieldType": "String"
         }
     ],
-    "changelogDate": "20160317215552",
+    "changelogDate": "20160324165452",
     "dto": "no",
     "service": "serviceClass",
     "pagination": "no"

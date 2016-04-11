@@ -20,6 +20,14 @@
             "description": "Description",
             "checkin": "Checkin",
             "checkout": "Checkout",
+            "date": "Date",
+            "fileId": "FileId",
+            "dateSentToAccounting": "DateSentToAccounting",
+            "status": "Status",
+            "paymentType": "PaymentType",
+            "numOfAdults": "NumOfAdults",
+            "numOfchildren": "NumOfchildren",
+            "destination": "Destination",
             "client": "Client",
             "createdBy": "CreatedBy"
         }

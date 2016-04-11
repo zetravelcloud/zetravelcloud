@@ -25,6 +25,9 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import java.time.LocalDate;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.ZoneId;
 import java.util.List;
 
@@ -44,6 +47,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class TravelRequestResourceIntTest {
 
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME.withZone(ZoneId.of("Z"));
+
     private static final String DEFAULT_TITLE = "AAAAA";
     private static final String UPDATED_TITLE = "BBBBB";
     private static final String DEFAULT_DESCRIPTION = "AAAAA";
@@ -54,6 +59,28 @@ public class TravelRequestResourceIntTest {
 
     private static final LocalDate DEFAULT_CHECKOUT = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_CHECKOUT = LocalDate.now(ZoneId.systemDefault());
+
+    private static final ZonedDateTime DEFAULT_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_DATE_STR = dateTimeFormatter.format(DEFAULT_DATE);
+    private static final String DEFAULT_FILE_ID = "AAAAA";
+    private static final String UPDATED_FILE_ID = "BBBBB";
+
+    private static final ZonedDateTime DEFAULT_DATE_SENT_TO_ACCOUNTING = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_DATE_SENT_TO_ACCOUNTING = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_DATE_SENT_TO_ACCOUNTING_STR = dateTimeFormatter.format(DEFAULT_DATE_SENT_TO_ACCOUNTING);
+    private static final String DEFAULT_STATUS = "AAAAA";
+    private static final String UPDATED_STATUS = "BBBBB";
+    private static final String DEFAULT_PAYMENT_TYPE = "AAAAA";
+    private static final String UPDATED_PAYMENT_TYPE = "BBBBB";
+
+    private static final Integer DEFAULT_NUM_OF_ADULTS = 1;
+    private static final Integer UPDATED_NUM_OF_ADULTS = 2;
+
+    private static final Integer DEFAULT_NUM_OFCHILDREN = 1;
+    private static final Integer UPDATED_NUM_OFCHILDREN = 2;
+    private static final String DEFAULT_DESTINATION = "AAAAA";
+    private static final String UPDATED_DESTINATION = "BBBBB";
 
     @Inject
     private TravelRequestRepository travelRequestRepository;
@@ -88,6 +115,14 @@ public class TravelRequestResourceIntTest {
         travelRequest.setDescription(DEFAULT_DESCRIPTION);
         travelRequest.setCheckin(DEFAULT_CHECKIN);
         travelRequest.setCheckout(DEFAULT_CHECKOUT);
+        travelRequest.setDate(DEFAULT_DATE);
+        travelRequest.setFileId(DEFAULT_FILE_ID);
+        travelRequest.setDateSentToAccounting(DEFAULT_DATE_SENT_TO_ACCOUNTING);
+        travelRequest.setStatus(DEFAULT_STATUS);
+        travelRequest.setPaymentType(DEFAULT_PAYMENT_TYPE);
+        travelRequest.setNumOfAdults(DEFAULT_NUM_OF_ADULTS);
+        travelRequest.setNumOfchildren(DEFAULT_NUM_OFCHILDREN);
+        travelRequest.setDestination(DEFAULT_DESTINATION);
     }
 
     @Test
@@ -110,6 +145,14 @@ public class TravelRequestResourceIntTest {
         assertThat(testTravelRequest.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testTravelRequest.getCheckin()).isEqualTo(DEFAULT_CHECKIN);
         assertThat(testTravelRequest.getCheckout()).isEqualTo(DEFAULT_CHECKOUT);
+        assertThat(testTravelRequest.getDate()).isEqualTo(DEFAULT_DATE);
+        assertThat(testTravelRequest.getFileId()).isEqualTo(DEFAULT_FILE_ID);
+        assertThat(testTravelRequest.getDateSentToAccounting()).isEqualTo(DEFAULT_DATE_SENT_TO_ACCOUNTING);
+        assertThat(testTravelRequest.getStatus()).isEqualTo(DEFAULT_STATUS);
+        assertThat(testTravelRequest.getPaymentType()).isEqualTo(DEFAULT_PAYMENT_TYPE);
+        assertThat(testTravelRequest.getNumOfAdults()).isEqualTo(DEFAULT_NUM_OF_ADULTS);
+        assertThat(testTravelRequest.getNumOfchildren()).isEqualTo(DEFAULT_NUM_OFCHILDREN);
+        assertThat(testTravelRequest.getDestination()).isEqualTo(DEFAULT_DESTINATION);
     }
 
     @Test
@@ -162,7 +205,15 @@ public class TravelRequestResourceIntTest {
                 .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
                 .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].checkin").value(hasItem(DEFAULT_CHECKIN.toString())))
-                .andExpect(jsonPath("$.[*].checkout").value(hasItem(DEFAULT_CHECKOUT.toString())));
+                .andExpect(jsonPath("$.[*].checkout").value(hasItem(DEFAULT_CHECKOUT.toString())))
+                .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE_STR)))
+                .andExpect(jsonPath("$.[*].fileId").value(hasItem(DEFAULT_FILE_ID.toString())))
+                .andExpect(jsonPath("$.[*].dateSentToAccounting").value(hasItem(DEFAULT_DATE_SENT_TO_ACCOUNTING_STR)))
+                .andExpect(jsonPath("$.[*].status").value(hasItem(DEFAULT_STATUS.toString())))
+                .andExpect(jsonPath("$.[*].paymentType").value(hasItem(DEFAULT_PAYMENT_TYPE.toString())))
+                .andExpect(jsonPath("$.[*].numOfAdults").value(hasItem(DEFAULT_NUM_OF_ADULTS)))
+                .andExpect(jsonPath("$.[*].numOfchildren").value(hasItem(DEFAULT_NUM_OFCHILDREN)))
+                .andExpect(jsonPath("$.[*].destination").value(hasItem(DEFAULT_DESTINATION.toString())));
     }
 
     @Test
@@ -179,7 +230,15 @@ public class TravelRequestResourceIntTest {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.checkin").value(DEFAULT_CHECKIN.toString()))
-            .andExpect(jsonPath("$.checkout").value(DEFAULT_CHECKOUT.toString()));
+            .andExpect(jsonPath("$.checkout").value(DEFAULT_CHECKOUT.toString()))
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE_STR))
+            .andExpect(jsonPath("$.fileId").value(DEFAULT_FILE_ID.toString()))
+            .andExpect(jsonPath("$.dateSentToAccounting").value(DEFAULT_DATE_SENT_TO_ACCOUNTING_STR))
+            .andExpect(jsonPath("$.status").value(DEFAULT_STATUS.toString()))
+            .andExpect(jsonPath("$.paymentType").value(DEFAULT_PAYMENT_TYPE.toString()))
+            .andExpect(jsonPath("$.numOfAdults").value(DEFAULT_NUM_OF_ADULTS))
+            .andExpect(jsonPath("$.numOfchildren").value(DEFAULT_NUM_OFCHILDREN))
+            .andExpect(jsonPath("$.destination").value(DEFAULT_DESTINATION.toString()));
     }
 
     @Test
@@ -203,6 +262,14 @@ public class TravelRequestResourceIntTest {
         travelRequest.setDescription(UPDATED_DESCRIPTION);
         travelRequest.setCheckin(UPDATED_CHECKIN);
         travelRequest.setCheckout(UPDATED_CHECKOUT);
+        travelRequest.setDate(UPDATED_DATE);
+        travelRequest.setFileId(UPDATED_FILE_ID);
+        travelRequest.setDateSentToAccounting(UPDATED_DATE_SENT_TO_ACCOUNTING);
+        travelRequest.setStatus(UPDATED_STATUS);
+        travelRequest.setPaymentType(UPDATED_PAYMENT_TYPE);
+        travelRequest.setNumOfAdults(UPDATED_NUM_OF_ADULTS);
+        travelRequest.setNumOfchildren(UPDATED_NUM_OFCHILDREN);
+        travelRequest.setDestination(UPDATED_DESTINATION);
 
         restTravelRequestMockMvc.perform(put("/api/travelRequests")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -217,6 +284,14 @@ public class TravelRequestResourceIntTest {
         assertThat(testTravelRequest.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testTravelRequest.getCheckin()).isEqualTo(UPDATED_CHECKIN);
         assertThat(testTravelRequest.getCheckout()).isEqualTo(UPDATED_CHECKOUT);
+        assertThat(testTravelRequest.getDate()).isEqualTo(UPDATED_DATE);
+        assertThat(testTravelRequest.getFileId()).isEqualTo(UPDATED_FILE_ID);
+        assertThat(testTravelRequest.getDateSentToAccounting()).isEqualTo(UPDATED_DATE_SENT_TO_ACCOUNTING);
+        assertThat(testTravelRequest.getStatus()).isEqualTo(UPDATED_STATUS);
+        assertThat(testTravelRequest.getPaymentType()).isEqualTo(UPDATED_PAYMENT_TYPE);
+        assertThat(testTravelRequest.getNumOfAdults()).isEqualTo(UPDATED_NUM_OF_ADULTS);
+        assertThat(testTravelRequest.getNumOfchildren()).isEqualTo(UPDATED_NUM_OFCHILDREN);
+        assertThat(testTravelRequest.getDestination()).isEqualTo(UPDATED_DESTINATION);
     }
 
     @Test

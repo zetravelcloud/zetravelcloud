@@ -53,4 +53,22 @@ angular.module('zetravelcloudApp').controller('TravelRequestDialogController',
         $scope.datePickerForCheckoutOpen = function($event) {
             $scope.datePickerForCheckout.status.opened = true;
         };
+        $scope.datePickerForDate = {};
+
+        $scope.datePickerForDate.status = {
+            opened: false
+        };
+
+        $scope.datePickerForDateOpen = function($event) {
+            $scope.datePickerForDate.status.opened = true;
+        };
+        $scope.datePickerForDateSentToAccounting = {};
+
+        $scope.datePickerForDateSentToAccounting.status = {
+            opened: false
+        };
+
+        $scope.datePickerForDateSentToAccountingOpen = function($event) {
+            $scope.datePickerForDateSentToAccounting.status.opened = true;
+        };
 }]);

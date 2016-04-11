@@ -10,6 +10,8 @@ angular.module('zetravelcloudApp')
                     data = angular.fromJson(data);
                     data.checkin = DateUtils.convertLocaleDateFromServer(data.checkin);
                     data.checkout = DateUtils.convertLocaleDateFromServer(data.checkout);
+                    data.date = DateUtils.convertDateTimeFromServer(data.date);
+                    data.dateSentToAccounting = DateUtils.convertDateTimeFromServer(data.dateSentToAccounting);
                     return data;
                 }
             },

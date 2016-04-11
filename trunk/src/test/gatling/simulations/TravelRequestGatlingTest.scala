@@ -80,7 +80,7 @@ class TravelRequestGatlingTest extends Simulation {
             .exec(http("Create new travelRequest")
             .post("/api/travelRequests")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "title":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "checkin":"2020-01-01T00:00:00.000Z", "checkout":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null, "title":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "checkin":"2020-01-01T00:00:00.000Z", "checkout":"2020-01-01T00:00:00.000Z", "date":"2020-01-01T00:00:00.000Z", "fileId":"SAMPLE_TEXT", "dateSentToAccounting":"2020-01-01T00:00:00.000Z", "status":"SAMPLE_TEXT", "paymentType":"SAMPLE_TEXT", "numOfAdults":"0", "numOfchildren":"0", "destination":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_travelRequest_url")))
             .pause(10)
