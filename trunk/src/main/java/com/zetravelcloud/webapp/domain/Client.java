@@ -30,6 +30,14 @@ public class Client implements Serializable {
     @Column(name = "fax")
     private String fax;
     
+    @Lob
+    @Column(name = "image")
+    private byte[] image;
+    
+    @Column(name = "image_content_type")        private String imageContentType;
+    @Column(name = "client_type")
+    private String clientType;
+    
     public Long getId() {
         return id;
     }
@@ -70,6 +78,30 @@ public class Client implements Serializable {
         this.fax = fax;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+    
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getImageContentType() {
+        return imageContentType;
+    }
+
+    public void setImageContentType(String imageContentType) {
+        this.imageContentType = imageContentType;
+    }
+
+    public String getClientType() {
+        return clientType;
+    }
+    
+    public void setClientType(String clientType) {
+        this.clientType = clientType;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -98,6 +130,9 @@ public class Client implements Serializable {
             ", email='" + email + "'" +
             ", mobile='" + mobile + "'" +
             ", fax='" + fax + "'" +
+            ", image='" + image + "'" +
+            ", imageContentType='" + imageContentType + "'" +
+            ", clientType='" + clientType + "'" +
             '}';
     }
 }

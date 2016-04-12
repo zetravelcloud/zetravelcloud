@@ -65,6 +65,9 @@ angular.module('zetravelcloudApp')
                                     email: null,
                                     mobile: null,
                                     fax: null,
+                                    image: null,
+                                    imageContentType: null,
+                                    clientType: null,
                                     id: null
                                 };
                             }

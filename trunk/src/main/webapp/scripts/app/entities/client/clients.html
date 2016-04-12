@@ -23,6 +23,8 @@
                     <th><span translate="zetravelcloudApp.client.email">Email</span></th>
                     <th><span translate="zetravelcloudApp.client.mobile">Mobile</span></th>
                     <th><span translate="zetravelcloudApp.client.fax">Fax</span></th>
+                    <th><span translate="zetravelcloudApp.client.image">Image</span></th>
+                    <th><span translate="zetravelcloudApp.client.clientType">ClientType</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,6 +35,10 @@
                     <td>{{client.email}}</td>
                     <td>{{client.mobile}}</td>
                     <td>{{client.fax}}</td>
+                    <td>
+                        <img data-ng-src="{{'data:' + client.imageContentType + ';base64,' + client.image}}" style="max-height: 30px;" ng-if="client.image"/> {{client.imageContentType}} {{byteSize(client.image)}}
+                    </td>
+                    <td>{{client.clientType}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

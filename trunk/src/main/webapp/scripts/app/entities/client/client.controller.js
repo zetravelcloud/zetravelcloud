@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zetravelcloudApp')
-    .controller('ClientController', function ($scope, $state, Client) {
+    .controller('ClientController', function ($scope, $state, DataUtils, Client) {
 
         $scope.clients = [];
         $scope.loadAll = function() {
@@ -23,7 +23,14 @@ angular.module('zetravelcloudApp')
                 email: null,
                 mobile: null,
                 fax: null,
+                image: null,
+                imageContentType: null,
+                clientType: null,
                 id: null
             };
         };
+
+        $scope.abbreviate = DataUtils.abbreviate;
+
+        $scope.byteSize = DataUtils.byteSize;
     });

@@ -23,7 +23,18 @@
             "fieldId": 4,
             "fieldName": "fax",
             "fieldType": "String"
-        }
+        },
+		{
+			"fieldId": 5,
+			"fieldName": "image",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+		},
+		{
+			"fieldId": 6,
+			"fieldName": "clientType",
+            "fieldType": "String"
+		}
     ],
     "changelogDate": "20160317210122",
     "dto": "no",

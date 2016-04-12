@@ -42,6 +42,23 @@
                     <span class="form-control-static">{{client.fax}}</span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.client.image">Image</span>
+                </td>
+                <td>
+                    <img data-ng-src="{{'data:' + client.imageContentType + ';base64,' + client.image}}" style="max-width: 100%;" ng-if="client.image"/>
+                    <div>{{client.imageContentType}}  {{byteSize(client.image)}}</div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.client.clientType">ClientType</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{client.clientType}}</span>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>

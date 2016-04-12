@@ -19,7 +19,9 @@
             "name": "Name",
             "email": "Email",
             "mobile": "Mobile",
-            "fax": "Fax"
+            "fax": "Fax",
+            "image": "Image",
+            "clientType": "ClientType"
         }
     }
 }

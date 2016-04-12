@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('zetravelcloudApp')
-    .controller('ClientDetailController', function ($scope, $rootScope, $stateParams, entity, Client) {
+    .controller('ClientDetailController', function ($scope, $rootScope, $stateParams, DataUtils, entity, Client) {
         $scope.client = entity;
         $scope.load = function (id) {
             Client.get({id: id}, function(result) {
@@ -13,4 +13,5 @@ angular.module('zetravelcloudApp')
         });
         $scope.$on('$destroy', unsubscribe);
 
+        $scope.byteSize = DataUtils.byteSize;
     });

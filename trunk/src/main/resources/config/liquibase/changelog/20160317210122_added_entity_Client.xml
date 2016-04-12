@@ -31,6 +31,13 @@
             
             <column name="fax" type="varchar(255)"/>
             
+            <column name="image" type="blob" />
+            <column name="image_content_type" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="client_type" type="varchar(255)"/>
+            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
