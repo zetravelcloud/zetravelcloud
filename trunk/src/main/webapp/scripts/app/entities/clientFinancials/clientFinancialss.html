@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="zetravelcloudApp.clientFinancials.home.title">ClientFinancialss</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="clientFinancials.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.clientFinancials.home.createLabel">Create new ClientFinancials
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="zetravelcloudApp.clientFinancials.creditLimit">CreditLimit</span></th>
+                    <th><span translate="zetravelcloudApp.clientFinancials.balance">Balance</span></th>
+                    <th><span translate="zetravelcloudApp.clientFinancials.client">client</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="clientFinancials in clientFinancialss track by clientFinancials.id">
+                    <td><a ui-sref="clientFinancials.detail({id:clientFinancials.id})">{{clientFinancials.id}}</a></td>
+                    <td>{{clientFinancials.creditLimit}}</td>
+                    <td>{{clientFinancials.balance}}</td>
+                    <td>
+                        <a ui-sref="client.detail({id:clientFinancials.client.id})">{{clientFinancials.client.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="clientFinancials.detail({id:clientFinancials.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="clientFinancials.edit({id:clientFinancials.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="clientFinancials.delete({id:clientFinancials.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

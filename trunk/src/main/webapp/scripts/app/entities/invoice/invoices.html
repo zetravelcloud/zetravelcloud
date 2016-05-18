@@ -1,0 +1,65 @@
+<div>
+    <h2 translate="zetravelcloudApp.invoice.home.title">Invoices</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="invoice.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.invoice.home.createLabel">Create new Invoice
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="predicate" ascending="reverse" callback="loadAll()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="totalAmount"><span translate="zetravelcloudApp.invoice.totalAmount">TotalAmount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="paid"><span translate="zetravelcloudApp.invoice.paid">Paid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="client.name"><span translate="zetravelcloudApp.invoice.client">client</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="invoice in invoices track by invoice.id">
+                    <td><a ui-sref="invoice.detail({id:invoice.id})">{{invoice.id}}</a></td>
+                    <td>{{invoice.totalAmount}}</td>
+                    <td>{{invoice.paid}}</td>
+                    <td>
+                        <a ui-sref="client.detail({id:invoice.client.id})">{{invoice.client.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="invoice.detail({id:invoice.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="invoice.edit({id:invoice.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="invoice.delete({id:invoice.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <uib-pagination class="pagination-sm" total-items="totalItems" ng-model="page" ng-change="loadAll()"></uib-pagination>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "relationshipType": "one-to-one",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "financials"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "creditLimit",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "balance",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20160518135837",
+    "dto": "no",
+    "service": "serviceClass",
+    "pagination": "no"
+}

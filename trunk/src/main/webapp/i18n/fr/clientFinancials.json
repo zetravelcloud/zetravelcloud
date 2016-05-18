@@ -1,0 +1,25 @@
+{
+    "zetravelcloudApp": {
+        "clientFinancials" : {
+            "home": {
+                "title": "ClientFinancialss",
+                "createLabel": "Créer un nouveau ClientFinancials",
+                "createOrEditLabel": "Créer ou éditer un ClientFinancials",
+                "search": "Search for ClientFinancials"
+            },
+            "created": "Un nouveau ClientFinancials a été créé avec l'identifiant {{ param }}",
+            "updated": "Le ClientFinancials avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le ClientFinancials avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le ClientFinancials {{ id }} ?"
+            },
+            "detail": {
+                "title": "ClientFinancials"
+            },
+            "creditLimit": "CreditLimit",
+            "balance": "Balance",
+            "client": "Client"
+        }
+    }
+}
+
