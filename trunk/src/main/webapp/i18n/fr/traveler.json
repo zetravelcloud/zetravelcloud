@@ -1,0 +1,27 @@
+{
+    "zetravelcloudApp": {
+        "traveler" : {
+            "home": {
+                "title": "Travelers",
+                "createLabel": "Créer un nouveau Traveler",
+                "createOrEditLabel": "Créer ou éditer un Traveler",
+                "search": "Search for Traveler"
+            },
+            "created": "Un nouveau Traveler a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Traveler avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Traveler avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Traveler {{ id }} ?"
+            },
+            "detail": {
+                "title": "Traveler"
+            },
+            "name": "Name",
+            "email": "Email",
+            "phone": "Phone",
+            "dateOfBirth": "DateOfBirth",
+            "travelerFile": "TravelerFile"
+        }
+    }
+}
+

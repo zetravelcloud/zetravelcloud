@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="zetravelcloudApp.travelerFile.home.title">TravelerFiles</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="travelerFile.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.travelerFile.home.createLabel">Create new TravelerFile
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="zetravelcloudApp.travelerFile.fileName">FileName</span></th>
+                    <th><span translate="zetravelcloudApp.travelerFile.file">File</span></th>
+                    <th><span translate="zetravelcloudApp.travelerFile.traveler">traveler</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="travelerFile in travelerFiles track by travelerFile.id">
+                    <td><a ui-sref="travelerFile.detail({id:travelerFile.id})">{{travelerFile.id}}</a></td>
+                    <td>{{travelerFile.fileName}}</td>
+                    <td>{{abbreviate(travelerFile.file)}} {{travelerFile.fileContentType}} {{byteSize(travelerFile.file)}}</td>
+                    <td>
+                        <a ui-sref="traveler.detail({id:travelerFile.traveler.id})">{{travelerFile.traveler.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="travelerFile.detail({id:travelerFile.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="travelerFile.edit({id:travelerFile.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="travelerFile.delete({id:travelerFile.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myTravelerFileLabel" translate="zetravelcloudApp.travelerFile.home.createOrEditLabel">Create or edit a TravelerFile</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="travelerFile.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="zetravelcloudApp.travelerFile.fileName" for="field_fileName">FileName</label>
+            <input type="text" class="form-control" name="fileName" id="field_fileName"
+                    ng-model="travelerFile.fileName"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="setFile($file, travelerFile)">
+            <label class="control-label" translate="zetravelcloudApp.travelerFile.file" for="field_file">File</label>
+            <div>
+                <div class="help-block clearfix">
+                    <span class="pull-left">{{abbreviate(travelerFile.file)}} {{travelerFile.fileContentType}} {{byteSize(travelerFile.file)}}</span>
+                    <button ng-click="travelerFile.file=null;travelerFile.fileContentType=null;"
+                            ng-if="travelerFile.file"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="setFile($file, travelerFile)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="file" id="field_file"
+                    ng-model="travelerFile.file"
+                     />
+            <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType"
+                    ng-model="travelerFile.fileContentType" />
+        </div>
+
+        <div class="form-group">
+            <label translate="zetravelcloudApp.travelerFile.traveler" for="field_traveler">traveler</label>
+            <select class="form-control" id="field_traveler" name="traveler" ng-model="travelerFile.traveler" ng-options="traveler as traveler.name for traveler in travelers track by traveler.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

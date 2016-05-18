@@ -16,6 +16,8 @@
                 "city": "City",
                 "proposal": "Proposal",
                 "proposedRoom": "ProposedRoom",
+                "traveler": "Traveler",
+                "travelerFile": "TravelerFile",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

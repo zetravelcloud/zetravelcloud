@@ -1,0 +1,25 @@
+{
+    "zetravelcloudApp": {
+        "travelerFile" : {
+            "home": {
+                "title": "TravelerFiles",
+                "createLabel": "Créer un nouveau TravelerFile",
+                "createOrEditLabel": "Créer ou éditer un TravelerFile",
+                "search": "Search for TravelerFile"
+            },
+            "created": "Un nouveau TravelerFile a été créé avec l'identifiant {{ param }}",
+            "updated": "Le TravelerFile avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le TravelerFile avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le TravelerFile {{ id }} ?"
+            },
+            "detail": {
+                "title": "TravelerFile"
+            },
+            "fileName": "FileName",
+            "file": "File",
+            "traveler": "Traveler"
+        }
+    }
+}
+

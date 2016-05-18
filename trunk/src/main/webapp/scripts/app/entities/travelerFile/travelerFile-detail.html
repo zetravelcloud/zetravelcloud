@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="zetravelcloudApp.travelerFile.detail.title">TravelerFile</span> {{travelerFile.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelerFile.fileName">FileName</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{travelerFile.fileName}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelerFile.file">File</span>
+                </td>
+                <td>
+                <a ng-href="data:{{travelerFile.fileContentType}};base64,{{travelerFile.file}}" target="_blank" download><span class="glyphicon glyphicon-download"/></a>
+                
+                </td>
+            </tr>
+            <tr>
+                            <td>
+                    <div>{{travelerFile.fileContentType}}  {{byteSize(travelerFile.file)}}</div>
+  
+                </td>
+            
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.travelerFile.traveler">traveler</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="traveler.detail({id:travelerFile.traveler.id})">{{travelerFile.traveler.name}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
