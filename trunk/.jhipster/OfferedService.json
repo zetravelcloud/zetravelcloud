@@ -1,0 +1,58 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "currency",
+            "otherEntityName": "currency",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "symbol"
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "offeredServiceType",
+            "otherEntityName": "offeredServiceType",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+		{
+            "relationshipId": 3,
+            "relationshipName": "serviceProvider",
+            "otherEntityName": "serviceProvider",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+		{
+            "relationshipId": 4,
+            "relationshipName": "travelRequest",
+            "otherEntityName": "travelRequest",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "sellingPrice",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "cost",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "detailsId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "confirmationDate",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "changelogDate": "20160518201849",
+    "dto": "no",
+    "service": "serviceClass",
+    "pagination": "no"
+}

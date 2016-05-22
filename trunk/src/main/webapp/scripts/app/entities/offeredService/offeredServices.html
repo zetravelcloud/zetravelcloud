@@ -1,0 +1,78 @@
+<div>
+    <h2 translate="zetravelcloudApp.offeredService.home.title">OfferedServices</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="offeredService.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.offeredService.home.createLabel">Create new OfferedService
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.sellingPrice">SellingPrice</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.cost">Cost</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.detailsId">DetailsId</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.confirmationDate">ConfirmationDate</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.currency">currency</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.offeredServiceType">offeredServiceType</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.serviceProvider">serviceProvider</span></th>
+                    <th><span translate="zetravelcloudApp.offeredService.travelRequest">travelRequest</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="offeredService in offeredServices track by offeredService.id">
+                    <td><a ui-sref="offeredService.detail({id:offeredService.id})">{{offeredService.id}}</a></td>
+                    <td>{{offeredService.sellingPrice}}</td>
+                    <td>{{offeredService.cost}}</td>
+                    <td>{{offeredService.detailsId}}</td>
+                    <td>{{offeredService.confirmationDate | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="currency.detail({id:offeredService.currency.id})">{{offeredService.currency.symbol}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="offeredServiceType.detail({id:offeredService.offeredServiceType.id})">{{offeredService.offeredServiceType.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="serviceProvider.detail({id:offeredService.serviceProvider.id})">{{offeredService.serviceProvider.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="travelRequest.detail({id:offeredService.travelRequest.id})">{{offeredService.travelRequest.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="offeredService.detail({id:offeredService.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="offeredService.edit({id:offeredService.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="offeredService.delete({id:offeredService.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

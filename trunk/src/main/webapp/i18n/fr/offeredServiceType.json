@@ -1,0 +1,23 @@
+{
+    "zetravelcloudApp": {
+        "offeredServiceType" : {
+            "home": {
+                "title": "OfferedServiceTypes",
+                "createLabel": "Créer un nouveau OfferedServiceType",
+                "createOrEditLabel": "Créer ou éditer un OfferedServiceType",
+                "search": "Search for OfferedServiceType"
+            },
+            "created": "Un nouveau OfferedServiceType a été créé avec l'identifiant {{ param }}",
+            "updated": "Le OfferedServiceType avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le OfferedServiceType avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le OfferedServiceType {{ id }} ?"
+            },
+            "detail": {
+                "title": "OfferedServiceType"
+            },
+            "name": "Name"
+        }
+    }
+}
+

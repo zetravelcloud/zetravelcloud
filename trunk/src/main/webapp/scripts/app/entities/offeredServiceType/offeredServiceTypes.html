@@ -1,0 +1,56 @@
+<div>
+    <h2 translate="zetravelcloudApp.offeredServiceType.home.title">OfferedServiceTypes</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="offeredServiceType.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                        translate="zetravelcloudApp.offeredServiceType.home.createLabel">Create new OfferedServiceType
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="zetravelcloudApp.offeredServiceType.name">Name</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="offeredServiceType in offeredServiceTypes track by offeredServiceType.id">
+                    <td><a ui-sref="offeredServiceType.detail({id:offeredServiceType.id})">{{offeredServiceType.id}}</a></td>
+                    <td>{{offeredServiceType.name}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="offeredServiceType.detail({id:offeredServiceType.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="offeredServiceType.edit({id:offeredServiceType.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="offeredServiceType.delete({id:offeredServiceType.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

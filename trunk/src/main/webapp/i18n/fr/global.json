@@ -20,6 +20,9 @@
                 "travelerFile": "TravelerFile",
                 "clientFinancials": "ClientFinancials",
                 "invoice": "Invoice",
+                "offeredService": "OfferedService",
+                "offeredServiceType": "OfferedServiceType",
+                "serviceProvider": "ServiceProvider",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

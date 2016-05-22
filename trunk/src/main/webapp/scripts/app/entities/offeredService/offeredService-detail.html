@@ -1,0 +1,86 @@
+
+<div>
+    <h2><span translate="zetravelcloudApp.offeredService.detail.title">OfferedService</span> {{offeredService.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.sellingPrice">SellingPrice</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{offeredService.sellingPrice}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.cost">Cost</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{offeredService.cost}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.detailsId">DetailsId</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{offeredService.detailsId}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.confirmationDate">ConfirmationDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{offeredService.confirmationDate | date:'medium'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.currency">currency</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="currency.detail({id:offeredService.currency.id})">{{offeredService.currency.symbol}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.offeredServiceType">offeredServiceType</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="offeredServiceType.detail({id:offeredService.offeredServiceType.id})">{{offeredService.offeredServiceType.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.serviceProvider">serviceProvider</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="serviceProvider.detail({id:offeredService.serviceProvider.id})">{{offeredService.serviceProvider.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="zetravelcloudApp.offeredService.travelRequest">travelRequest</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="travelRequest.detail({id:offeredService.travelRequest.id})">{{offeredService.travelRequest.id}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

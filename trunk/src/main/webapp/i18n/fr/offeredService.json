@@ -1,0 +1,30 @@
+{
+    "zetravelcloudApp": {
+        "offeredService" : {
+            "home": {
+                "title": "OfferedServices",
+                "createLabel": "Créer un nouveau OfferedService",
+                "createOrEditLabel": "Créer ou éditer un OfferedService",
+                "search": "Search for OfferedService"
+            },
+            "created": "Un nouveau OfferedService a été créé avec l'identifiant {{ param }}",
+            "updated": "Le OfferedService avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le OfferedService avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le OfferedService {{ id }} ?"
+            },
+            "detail": {
+                "title": "OfferedService"
+            },
+            "sellingPrice": "SellingPrice",
+            "cost": "Cost",
+            "detailsId": "DetailsId",
+            "confirmationDate": "ConfirmationDate",
+            "currency": "Currency",
+            "offeredServiceType": "OfferedServiceType",
+            "serviceProvider": "ServiceProvider",
+            "travelRequest": "TravelRequest"
+        }
+    }
+}
+

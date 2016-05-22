@@ -9,11 +9,6 @@
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
         <div class="form-group">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="travelRequest.id" readonly />
-        </div>
-        <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.travelRequest.title" for="field_title">Title</label>
             <input type="text" class="form-control" name="title" id="field_title"
                     ng-model="travelRequest.title"
@@ -21,7 +16,7 @@
         </div>
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.travelRequest.description" for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
+            <textarea type="text" class="form-control" name="description" id="field_description"
                     ng-model="travelRequest.description"
                      />
         </div>
