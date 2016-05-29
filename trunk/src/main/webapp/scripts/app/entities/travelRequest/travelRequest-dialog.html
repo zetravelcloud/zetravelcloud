@@ -1,67 +1,82 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
+<form name="editForm" role="form" novalidate ng-submit="save()"
+	show-validation>
 
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-                ng-click="clear()">&times;</button>
-        <h4 class="modal-title" id="myTravelRequestLabel" translate="zetravelcloudApp.travelRequest.home.createOrEditLabel">Create or edit a TravelRequest</h4>
-    </div>
-    <div class="modal-body">
-        <jh-alert-error></jh-alert-error>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.title" for="field_title">Title</label>
-            <input type="text" class="form-control" name="title" id="field_title"
-                    ng-model="travelRequest.title"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.description" for="field_description">Description</label>
-            <textarea type="text" class="form-control" name="description" id="field_description"
-                    ng-model="travelRequest.description"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.checkin" for="field_checkin">Checkin</label>
-            <input id="field_checkin" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="travelRequest.checkin" is-open="datePickerForCheckin.status.opened"
-            required/>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForCheckinOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-            <div ng-show="editForm.checkin.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.checkin.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.checkout" for="field_checkout">Checkout</label>
-            <input id="field_checkout" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="travelRequest.checkout" is-open="datePickerForCheckout.status.opened"
-            required/>
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForCheckoutOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-            <div ng-show="editForm.checkout.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.checkout.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.date" for="field_date">Date</label>
-            <input id="field_date" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="travelRequest.date" is-open="datePickerForDate.status.opened"
-            />
-            <span class="input-group-btn">
-                <button type="button" class="btn btn-default" ng-click="datePickerForDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-            </span>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.fileId" for="field_fileId">FileId</label>
-            <input type="text" class="form-control" name="fileId" id="field_fileId"
-                    ng-model="travelRequest.fileId"
-                     />
-        </div>
+	<h4 id="myTravelRequestLabel"
+		translate="zetravelcloudApp.travelRequest.home.createOrEditLabel">Create
+		or edit a TravelRequest</h4>
+	<div>
+		<jh-alert-error></jh-alert-error>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.fileId" for="field_fileId">File
+				No.</label> <input type="text" class="form-control" name="fileId"
+				id="field_fileId" ng-model="travelRequest.fileId" />
+		</div>
+
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.title" for="field_title">Title</label>
+			<input type="text" class="form-control" name="title" id="field_title"
+				ng-model="travelRequest.title" />
+		</div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.destination"
+				for="field_destination">Destination</label> <input type="text"
+				class="form-control" name="destination" id="field_destination"
+				ng-model="travelRequest.destination" />
+		</div>
+
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.checkin"
+				for="field_checkin">Checkin</label> <input id="field_checkin"
+				type="text" class="form-control"
+				uib-datepicker-popup="{{dateformat}}"
+				ng-model="travelRequest.checkin"
+				is-open="datePickerForCheckin.status.opened" required /> <span
+				class="input-group-btn">
+				<button type="button" class="btn btn-default"
+					ng-click="datePickerForCheckinOpen($event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+				</button>
+			</span>
+			<div ng-show="editForm.checkin.$invalid">
+				<p class="help-block" ng-show="editForm.checkin.$error.required"
+					translate="entity.validation.required">This field is required.
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.checkout"
+				for="field_checkout">Checkout</label> <input id="field_checkout"
+				type="text" class="form-control"
+				uib-datepicker-popup="{{dateformat}}"
+				ng-model="travelRequest.checkout"
+				is-open="datePickerForCheckout.status.opened" required /> <span
+				class="input-group-btn">
+				<button type="button" class="btn btn-default"
+					ng-click="datePickerForCheckoutOpen($event)">
+					<i class="glyphicon glyphicon-calendar"></i>
+				</button>
+			</span>
+			<div ng-show="editForm.checkout.$invalid">
+				<p class="help-block" ng-show="editForm.checkout.$error.required"
+					translate="entity.validation.required">This field is required.
+				</p>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.description"
+				for="field_description">Description</label>
+			<textarea type="text" class="form-control" name="description"
+				id="field_description" ng-model="travelRequest.description" />
+		</div>
+
+		<!-- 
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.travelRequest.dateSentToAccounting" for="field_dateSentToAccounting">DateSentToAccounting</label>
             <input id="field_dateSentToAccounting" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="travelRequest.dateSentToAccounting" is-open="datePickerForDateSentToAccounting.status.opened"
@@ -70,56 +85,191 @@
                 <button type="button" class="btn btn-default" ng-click="datePickerForDateSentToAccountingOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
         </div>
+      
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.travelRequest.status" for="field_status">Status</label>
             <input type="text" class="form-control" name="status" id="field_status"
                     ng-model="travelRequest.status"
                      />
         </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.paymentType" for="field_paymentType">PaymentType</label>
-            <input type="text" class="form-control" name="paymentType" id="field_paymentType"
-                    ng-model="travelRequest.paymentType"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.numOfAdults" for="field_numOfAdults">NumOfAdults</label>
-            <input type="number" class="form-control" name="numOfAdults" id="field_numOfAdults"
-                    ng-model="travelRequest.numOfAdults"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.numOfchildren" for="field_numOfchildren">NumOfchildren</label>
-            <input type="number" class="form-control" name="numOfchildren" id="field_numOfchildren"
-                    ng-model="travelRequest.numOfchildren"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="zetravelcloudApp.travelRequest.destination" for="field_destination">Destination</label>
-            <input type="text" class="form-control" name="destination" id="field_destination"
-                    ng-model="travelRequest.destination"
-                     />
-        </div>
+        -->
 
-        <div class="form-group">
-            <label translate="zetravelcloudApp.travelRequest.client" for="field_client">client</label>
-            <select class="form-control" id="field_client" name="client" ng-model="travelRequest.client" ng-options="client as client.name for client in clients track by client.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="zetravelcloudApp.travelRequest.createdBy" for="field_createdBy">createdBy</label>
-            <select class="form-control" id="field_createdBy" name="createdBy" ng-model="travelRequest.createdBy" ng-options="user as user.login for user in users track by user.id">
-                <option value=""></option>
-            </select>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
-            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
-        </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
-            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
-        </button>
-    </div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.paymentType"
+				for="field_paymentType">PaymentType</label> <input type="text"
+				class="form-control" name="paymentType" id="field_paymentType"
+				ng-model="travelRequest.paymentType" />
+		</div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.numOfAdults"
+				for="field_numOfAdults">NumOfAdults</label> <input type="number"
+				class="form-control" name="numOfAdults" id="field_numOfAdults"
+				ng-model="travelRequest.numOfAdults" />
+		</div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.numOfchildren"
+				for="field_numOfchildren">NumOfchildren</label> <input type="number"
+				class="form-control" name="numOfchildren" id="field_numOfchildren"
+				ng-model="travelRequest.numOfchildren" />
+		</div>
+
+		<div class="form-group">
+			<label translate="zetravelcloudApp.travelRequest.client"
+				for="field_client">client</label> <select class="form-control"
+				id="field_client" name="client" ng-model="travelRequest.client"
+				ng-options="client as client.name for client in clients track by client.id">
+				<option value=""></option>
+			</select>
+		</div>
+		<div class="form-group">
+			<h4 class="section-label"
+				translate="zetravelcloudApp.travelRequest.travelers.title"
+				for="field_client">Travelers</h4>
+		</div>
+		<div class="form-group">
+			<label class="control-label"
+				translate="zetravelcloudApp.travelRequest.travelers.addTraveler"
+				for="field_addTraveler">Add traveler </label>
+			<angucomplete-alt id="addTraveler" placeholder="Add travelers"
+				maxlength="50" pause="100" selected-object="selectTraveler"
+				local-data="travelers" search-fields="name" title-field="name"
+				minlength="1" input-class="form-control form-control-small"
+				match-class="angucomplete-highlight" />
+		</div>
+		<div class="table-responsive">
+			<table class="jh-table table table-striped">
+				<thead>
+					<tr>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.travelers.name">Name</span></th>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.travelers.dateOfBirth">DateOfBirth</span></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						ng-repeat="traveler in travelRequest.travelers track by traveler.id">
+						<td><a ui-sref="traveler.detail({id:traveler.id})">{{traveler.name}}</a></td>
+						<td>{{traveler.dateOfBirth | date:'mediumDate'}}</td>
+						<td class="text-right">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit"
+									ui-sref="traveler.detail({id:traveler.id})"
+									class="btn btn-info btn-sm">
+									<span class="glyphicon glyphicon-eye-open"></span> <span
+										class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+								</button>
+								<!-- 
+								<button type="submit" ui-sref="traveler.edit({id:traveler.id})"
+									class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-pencil"></span> <span
+										class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+								</button>
+								 -->
+								<button type="button" ng-click="removeTraveler($index)"
+									class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-remove-circle"></span> <span
+										class="hidden-xs hidden-sm" translate="entity.action.remove"></span>
+								</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<!-- 			<button class="btn btn-primary" ui-sref="traveler.new">
+				<span class="glyphicon glyphicon-plus"></span> <span
+					translate="zetravelcloudApp.travelRequest.addTravelerBtn">Create Traveler </span>
+			</button>		
+ -->
+		<div class="form-group">
+			<h4 class="section-label"
+				translate="zetravelcloudApp.travelRequest.offeredServices.title">Offered
+				Services</h4>
+		</div>
+		<div>
+			<button class="btn btn-primary" ui-sref="offeredService.new">
+				<span class="glyphicon glyphicon-plus"></span> <span
+					translate="zetravelcloudApp.travelRequest.offeredServices.addService">Create
+					new OfferedService </span>
+			</button>
+		</div>
+		<div class="table-responsive">
+			<table class="jh-table table table-striped">
+				<thead>
+					<tr>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.offeredServices.offeredServiceType">offeredServiceType</span></th>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.offeredServices.sellingPrice">SellingPrice</span></th>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.offeredServices.cost">Cost</span></th>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.offeredServices.confirmationDate">ConfirmationDate</span></th>
+						<th><span
+							translate="zetravelcloudApp.travelRequest.offeredServices.serviceProvider">serviceProvider</span></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr
+						ng-repeat="offeredService in travelRequest.offeredServices track by offeredService.id">
+						<td><a
+							ui-sref="offeredServiceType.detail({id:offeredService.offeredServiceType.id})">{{offeredService.offeredServiceType.name}}</a>
+						</td>
+						<td>{{offeredService.sellingPrice}}
+							{{offeredService.currency.symbol}}</td>
+						<td>{{offeredService.cost}}
+							{{offeredService.currency.symbol}}</td>
+						<td>{{offeredService.confirmationDate | date:'medium'}}</td>
+						<td><a
+							ui-sref="serviceProvider.detail({id:offeredService.serviceProvider.id})">{{offeredService.serviceProvider.name}}</a>
+						</td>
+						<td class="text-right">
+							<div class="btn-group flex-btn-group-container">
+								<button type="submit"
+									ui-sref="offeredService.detail({id:offeredService.id})"
+									class="btn btn-info btn-sm">
+									<span class="glyphicon glyphicon-eye-open"></span> <span
+										class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+								</button>
+								<button type="submit"
+									ui-sref="offeredService.edit({id:offeredService.id})"
+									class="btn btn-primary btn-sm">
+									<span class="glyphicon glyphicon-pencil"></span> <span
+										class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+								</button>
+								<button type="submit"
+									ui-sref="offeredService.delete({id:offeredService.id})"
+									class="btn btn-danger btn-sm">
+									<span class="glyphicon glyphicon-remove-circle"></span> <span
+										class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+								</button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+	</div>
+	<div>
+		<button type="button" class="btn btn-default"
+			onclick="window.history.back()">
+			<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+				translate="entity.action.cancel">Cancel</span>
+		</button>
+		<button type="submit" ng-disabled="editForm.$invalid || isSaving"
+			class="btn btn-primary">
+			<span class="glyphicon glyphicon-save"></span>&nbsp;<span
+				translate="entity.action.save">Save</span>
+		</button>
+	</div>
 </form>

@@ -14,7 +14,6 @@
                 "question": "Are you sure you want to delete Traveler {{ id }}?"
             },
             "detail": {
-                "title": "Traveler"
             },
             "name": "Name",
             "email": "Email",

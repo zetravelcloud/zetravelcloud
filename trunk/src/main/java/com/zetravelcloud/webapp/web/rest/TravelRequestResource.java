@@ -2,7 +2,9 @@ package com.zetravelcloud.webapp.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import com.zetravelcloud.webapp.domain.TravelRequest;
+import com.zetravelcloud.webapp.security.SecurityUtils;
 import com.zetravelcloud.webapp.service.TravelRequestService;
+import com.zetravelcloud.webapp.service.UserService;
 import com.zetravelcloud.webapp.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,8 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.security.Principal;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +35,9 @@ public class TravelRequestResource {
     @Inject
     private TravelRequestService travelRequestService;
     
+    @Inject
+    private UserService userService;
+    
     /**
      * POST  /travelRequests -> Create a new travelRequest.
      */
@@ -43,6 +50,8 @@ public class TravelRequestResource {
         if (travelRequest.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("travelRequest", "idexists", "A new travelRequest cannot already have an ID")).body(null);
         }
+        travelRequest.setDate(ZonedDateTime.now());
+        travelRequest.setCreatedBy(userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin()).get());
         TravelRequest result = travelRequestService.save(travelRequest);
         return ResponseEntity.created(new URI("/api/travelRequests/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("travelRequest", result.getId().toString()))
@@ -88,7 +97,9 @@ public class TravelRequestResource {
     @Timed
     public ResponseEntity<TravelRequest> getTravelRequest(@PathVariable Long id) {
         log.debug("REST request to get TravelRequest : {}", id);
-        TravelRequest travelRequest = travelRequestService.findOne(id);
+        // TODO use query parameter to filter results
+//        TravelRequest travelRequest = travelRequestService.findOne(id);
+        TravelRequest travelRequest = travelRequestService.findOneWithDetails(id);
         return Optional.ofNullable(travelRequest)
             .map(result -> new ResponseEntity<>(
                 result,

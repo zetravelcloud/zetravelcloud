@@ -1,15 +1,17 @@
 package com.zetravelcloud.webapp.service;
 
-import com.zetravelcloud.webapp.domain.TravelRequest;
-import com.zetravelcloud.webapp.repository.TravelRequestRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.stereotype.Service;
+import java.util.List;
 
 import javax.inject.Inject;
-import java.util.List;
-import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.zetravelcloud.webapp.domain.TravelRequest;
+import com.zetravelcloud.webapp.repository.TravelRequestRepository;
+import com.zetravelcloud.webapp.repository.TravelerRepository;
 
 /**
  * Service Implementation for managing TravelRequest.
@@ -23,6 +25,8 @@ public class TravelRequestService {
     @Inject
     private TravelRequestRepository travelRequestRepository;
     
+    @Inject
+    private TravelerRepository travelerRepository;
     /**
      * Save a travelRequest.
      * @return the persisted entity
@@ -55,6 +59,13 @@ public class TravelRequestService {
         return travelRequest;
     }
 
+    @Transactional(readOnly = true) 
+    public TravelRequest findOneWithDetails(Long id) {
+        log.debug("Request to get TravelRequest With travelers: {}", id);
+        TravelRequest travelRequest = travelRequestRepository.findOneWithDetails(id);
+        return travelRequest;
+    }
+    
     /**
      *  delete the  travelRequest by id.
      */

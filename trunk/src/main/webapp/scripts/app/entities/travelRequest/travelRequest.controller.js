@@ -34,4 +34,5 @@ angular.module('zetravelcloudApp')
                 id: null
             };
         };
+        
     });

@@ -9,10 +9,12 @@
     <div class="modal-body">
         <jh-alert-error></jh-alert-error>
         <div class="form-group">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="offeredService.id" readonly />
+            <label translate="zetravelcloudApp.offeredService.offeredServiceType" for="field_offeredServiceType">offeredServiceType</label>
+            <select class="form-control" id="field_offeredServiceType" name="offeredServiceType" ng-model="offeredService.offeredServiceType" ng-options="offeredServiceType as offeredServiceType.name for offeredServiceType in offeredservicetypes track by offeredServiceType.id">
+                <option value=""></option>
+            </select>
         </div>
+        
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.offeredService.sellingPrice" for="field_sellingPrice">SellingPrice</label>
             <input type="number" class="form-control" name="sellingPrice" id="field_sellingPrice"
@@ -25,12 +27,21 @@
                     ng-model="offeredService.cost"
                      />
         </div>
+                <div class="form-group">
+            <label translate="zetravelcloudApp.offeredService.currency" for="field_currency">currency</label>
+            <select class="form-control" id="field_currency" name="currency" ng-model="offeredService.currency" ng-options="currency as currency.symbol for currency in currencys track by currency.id">
+                <option value=""></option>
+            </select>
+        </div>
+        
+        <!--
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.offeredService.detailsId" for="field_detailsId">DetailsId</label>
             <input type="number" class="form-control" name="detailsId" id="field_detailsId"
                     ng-model="offeredService.detailsId"
                      />
         </div>
+         -->
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.offeredService.confirmationDate" for="field_confirmationDate">ConfirmationDate</label>
             <input id="field_confirmationDate" type="text" class="form-control" uib-datepicker-popup="{{dateformat}}" ng-model="offeredService.confirmationDate" is-open="datePickerForConfirmationDate.status.opened"
@@ -40,18 +51,6 @@
             </span>
         </div>
 
-        <div class="form-group">
-            <label translate="zetravelcloudApp.offeredService.currency" for="field_currency">currency</label>
-            <select class="form-control" id="field_currency" name="currency" ng-model="offeredService.currency" ng-options="currency as currency.symbol for currency in currencys track by currency.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="zetravelcloudApp.offeredService.offeredServiceType" for="field_offeredServiceType">offeredServiceType</label>
-            <select class="form-control" id="field_offeredServiceType" name="offeredServiceType" ng-model="offeredService.offeredServiceType" ng-options="offeredServiceType as offeredServiceType.name for offeredServiceType in offeredservicetypes track by offeredServiceType.id">
-                <option value=""></option>
-            </select>
-        </div>
         <div class="form-group">
             <label translate="zetravelcloudApp.offeredService.serviceProvider" for="field_serviceProvider">serviceProvider</label>
             <select class="form-control" id="field_serviceProvider" name="serviceProvider" ng-model="offeredService.serviceProvider" ng-options="serviceProvider as serviceProvider.name for serviceProvider in serviceproviders track by serviceProvider.id">

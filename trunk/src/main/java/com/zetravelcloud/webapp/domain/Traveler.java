@@ -1,13 +1,22 @@
 package com.zetravelcloud.webapp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.time.LocalDate;
-
-import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Traveler.
@@ -35,6 +44,9 @@ public class Traveler implements Serializable {
     @OneToMany(mappedBy = "traveler")
     @JsonIgnore
     private Set<TravelerFile> travelerFiles = new HashSet<>();
+
+    @ManyToMany(mappedBy="travelers")
+    private List<TravelRequest> travelRequests;
 
     public Long getId() {
         return id;
@@ -84,7 +96,15 @@ public class Traveler implements Serializable {
         this.travelerFiles = travelerFiles;
     }
 
-    @Override
+    public List<TravelRequest> getTravelRequests() {
+		return travelRequests;
+	}
+
+	public void setTravelRequests(List<TravelRequest> travelRequests) {
+		this.travelRequests = travelRequests;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

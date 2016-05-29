@@ -29,7 +29,27 @@
             "numOfchildren": "NumOfchildren",
             "destination": "Destination",
             "client": "Client",
-            "createdBy": "CreatedBy"
+            "createdBy": "CreatedBy",
+            "addTravelerBtn": "Create Traveler",
+            "travelers" : {
+            	"addTraveler" : "Add traveler",
+            	"title": "Travelers",
+            	"name": "Name",
+            	"dateOfBirth": "Date of Birth"
+            },
+            "offeredServices" : {
+            	"title": "Offered Services",
+	            "sellingPrice": "Selling Price",
+	            "cost": "Cost",
+	            "detailsId": "DetailsId",
+	            "confirmationDate": "ConfirmationDate",
+	            "currency": "Currency",
+	            "offeredServiceType": "OfferedServiceType",
+	            "serviceProvider": "ServiceProvider",
+	            "travelRequest": "TravelRequest",
+	            "addService" : "Add service"
+            }
+            
         }
     }
 }

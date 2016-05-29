@@ -3,7 +3,25 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
+.form-control {
+  display: inline;
+  width: auto;
+}
+.control-label{
+	display: inline-block;
+	width: 20%;
+}
+.section-label{
+	text-align: center;
+}
 
+
+
+.input-group-addon,
+.input-group-btn,
+.input-group .form-control {
+  display: inline-block;
+}
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */

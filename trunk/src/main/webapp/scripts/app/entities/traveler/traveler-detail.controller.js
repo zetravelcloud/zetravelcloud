@@ -8,6 +8,15 @@ angular.module('zetravelcloudApp')
                 $scope.traveler = result;
             });
         };
+        
+        $scope.travelerFiles = [];
+        $scope.loadTravelerFiles = function() {
+            TravelerFile.query(function(result) {
+               $scope.travelerFiles = result;
+            });
+        };
+        $scope.loadTravelerFiles();
+        
         var unsubscribe = $rootScope.$on('zetravelcloudApp:travelerUpdate', function(event, result) {
             $scope.traveler = result;
         });

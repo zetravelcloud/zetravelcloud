@@ -18,18 +18,11 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr>
-                    <th><span translate="global.field.id">ID</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.title">Title</span></th>
-                    <th><span translate="zetravelcloudApp.travelRequest.description">Description</span></th>
-                    <th><span translate="zetravelcloudApp.travelRequest.checkin">Checkin</span></th>
-                    <th><span translate="zetravelcloudApp.travelRequest.checkout">Checkout</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.date">Date</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.fileId">FileId</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.dateSentToAccounting">DateSentToAccounting</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.status">Status</span></th>
-                    <th><span translate="zetravelcloudApp.travelRequest.paymentType">PaymentType</span></th>
-                    <th><span translate="zetravelcloudApp.travelRequest.numOfAdults">NumOfAdults</span></th>
-                    <th><span translate="zetravelcloudApp.travelRequest.numOfchildren">NumOfchildren</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.destination">Destination</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.client">client</span></th>
                     <th><span translate="zetravelcloudApp.travelRequest.createdBy">createdBy</span></th>
@@ -38,18 +31,11 @@
             </thead>
             <tbody>
                 <tr ng-repeat="travelRequest in travelRequests track by travelRequest.id">
-                    <td><a ui-sref="travelRequest.detail({id:travelRequest.id})">{{travelRequest.id}}</a></td>
                     <td>{{travelRequest.title}}</td>
-                    <td>{{travelRequest.description}}</td>
-                        <td>{{travelRequest.checkin | date:'mediumDate'}}</td>
-                        <td>{{travelRequest.checkout | date:'mediumDate'}}</td>
                     <td>{{travelRequest.date | date:'medium'}}</td>
                     <td>{{travelRequest.fileId}}</td>
                     <td>{{travelRequest.dateSentToAccounting | date:'medium'}}</td>
                     <td>{{travelRequest.status}}</td>
-                    <td>{{travelRequest.paymentType}}</td>
-                    <td>{{travelRequest.numOfAdults}}</td>
-                    <td>{{travelRequest.numOfchildren}}</td>
                     <td>{{travelRequest.destination}}</td>
                     <td>
                         <a ui-sref="client.detail({id:travelRequest.client.id})">{{travelRequest.client.name}}</a>

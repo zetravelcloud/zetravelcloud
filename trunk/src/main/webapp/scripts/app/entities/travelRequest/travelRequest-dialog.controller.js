@@ -1,21 +1,23 @@
 'use strict';
 
 angular.module('zetravelcloudApp').controller('TravelRequestDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'TravelRequest', 'Client', 'User',
-        function($scope, $stateParams, $uibModalInstance, entity, TravelRequest, Client, User) {
+    ['$scope', '$stateParams', 'entity', 'TravelRequest', 'Client', 'User', 'Traveler',
+        function($scope, $stateParams, entity, TravelRequest, Client, User, Traveler) {
 
         $scope.travelRequest = entity;
+//        var travelerEx = {id: 1};
+//        $scope.travelRequest.travelers.push(travelerEx);
         $scope.clients = Client.query();
         $scope.users = User.query();
         $scope.load = function(id) {
             TravelRequest.get({id : id}, function(result) {
                 $scope.travelRequest = result;
+                debugger;
             });
         };
 
         var onSaveSuccess = function (result) {
             $scope.$emit('zetravelcloudApp:travelRequestUpdate', result);
-            $uibModalInstance.close(result);
             $scope.isSaving = false;
         };
 
@@ -32,9 +34,6 @@ angular.module('zetravelcloudApp').controller('TravelRequestDialogController',
             }
         };
 
-        $scope.clear = function() {
-            $uibModalInstance.dismiss('cancel');
-        };
         $scope.datePickerForCheckin = {};
 
         $scope.datePickerForCheckin.status = {
@@ -71,4 +70,33 @@ angular.module('zetravelcloudApp').controller('TravelRequestDialogController',
         $scope.datePickerForDateSentToAccountingOpen = function($event) {
             $scope.datePickerForDateSentToAccounting.status.opened = true;
         };
+        
+        $scope.travelers = [];
+        $scope.selectedTravelers = [];
+        // TODO load travelers using remote-url in the angucomplete-alt
+        $scope.loadAllTravelers = function() {
+            Traveler.query(function(result) {
+               $scope.travelers = result;
+            });
+        };
+        $scope.loadAllTravelers();
+        $scope.selectedTraveler = {};
+        $scope.selectTraveler = function(selected) {
+        	
+        	if(!(typeof $scope.travelRequest.travelers != 'undefined' || $scope.travelRequest.travelers instanceof Array)){
+        		$scope.travelRequest.travelers = [];
+        	}
+        	for (var i = 0; i < $scope.travelRequest.travelers.length; i++) {
+        		if($scope.travelRequest.travelers[i].id == selected.originalObject.id){
+        			return;
+        		}
+        	}
+        	$scope.travelRequest.travelers.push(selected.originalObject);
+        }
+        
+        $scope.removeTraveler = function(index){
+        			$scope.travelRequest.travelers.splice(index,1);
+
+        }
+
 }]);
