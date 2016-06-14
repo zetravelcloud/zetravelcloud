@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('zetravelcloudApp').controller('TravelRequestDialogController',
-    ['$scope', '$stateParams', 'entity', 'TravelRequest', 'Client', 'User', 'Traveler',
-        function($scope, $stateParams, entity, TravelRequest, Client, User, Traveler) {
+    ['$scope', '$state', '$stateParams', 'entity', 'TravelRequest', 'Client', 'User', 'Traveler',
+        function($scope, $state, $stateParams, entity, TravelRequest, Client, User, Traveler) {
 
         $scope.travelRequest = entity;
 //        var travelerEx = {id: 1};
@@ -19,6 +19,7 @@ angular.module('zetravelcloudApp').controller('TravelRequestDialogController',
         var onSaveSuccess = function (result) {
             $scope.$emit('zetravelcloudApp:travelRequestUpdate', result);
             $scope.isSaving = false;
+            $state.go('travelRequest');
         };
 
         var onSaveError = function (result) {

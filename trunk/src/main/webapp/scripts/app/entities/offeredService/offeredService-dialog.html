@@ -10,11 +10,10 @@
         <jh-alert-error></jh-alert-error>
         <div class="form-group">
             <label translate="zetravelcloudApp.offeredService.offeredServiceType" for="field_offeredServiceType">offeredServiceType</label>
-            <select class="form-control" id="field_offeredServiceType" name="offeredServiceType" ng-model="offeredService.offeredServiceType" ng-options="offeredServiceType as offeredServiceType.name for offeredServiceType in offeredservicetypes track by offeredServiceType.id">
+            <select required="required" class="form-control" id="field_offeredServiceType" name="offeredServiceType" ng-model="offeredService.offeredServiceType" ng-options="offeredServiceType as offeredServiceType.name for offeredServiceType in offeredservicetypes track by offeredServiceType.id">
                 <option value=""></option>
             </select>
         </div>
-        
         <div class="form-group">
             <label class="control-label" translate="zetravelcloudApp.offeredService.sellingPrice" for="field_sellingPrice">SellingPrice</label>
             <input type="number" class="form-control" name="sellingPrice" id="field_sellingPrice"
@@ -29,8 +28,8 @@
         </div>
                 <div class="form-group">
             <label translate="zetravelcloudApp.offeredService.currency" for="field_currency">currency</label>
-            <select class="form-control" id="field_currency" name="currency" ng-model="offeredService.currency" ng-options="currency as currency.symbol for currency in currencys track by currency.id">
-                <option value=""></option>
+            <select required="required" class="form-control" id="field_currency" name="currency" ng-model="offeredService.currency" ng-options="currency as currency.symbol for currency in currencys track by currency.id">
+                <option value="">Select a currency</option>
             </select>
         </div>
         
@@ -54,12 +53,6 @@
         <div class="form-group">
             <label translate="zetravelcloudApp.offeredService.serviceProvider" for="field_serviceProvider">serviceProvider</label>
             <select class="form-control" id="field_serviceProvider" name="serviceProvider" ng-model="offeredService.serviceProvider" ng-options="serviceProvider as serviceProvider.name for serviceProvider in serviceproviders track by serviceProvider.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="zetravelcloudApp.offeredService.travelRequest" for="field_travelRequest">travelRequest</label>
-            <select class="form-control" id="field_travelRequest" name="travelRequest" ng-model="offeredService.travelRequest" ng-options="travelRequest as travelRequest.id for travelRequest in travelrequests track by travelRequest.id">
                 <option value=""></option>
             </select>
         </div>

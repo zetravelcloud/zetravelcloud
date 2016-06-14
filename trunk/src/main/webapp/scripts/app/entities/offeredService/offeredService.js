@@ -48,6 +48,7 @@ angular.module('zetravelcloudApp')
                 }
             })
             .state('offeredService.new', {
+                parent: 'offeredService',
                 url: '/new',
                 data: {
                     authorities: ['ROLE_USER'],

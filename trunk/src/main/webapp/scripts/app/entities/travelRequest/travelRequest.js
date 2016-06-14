@@ -66,6 +66,43 @@ angular.module('zetravelcloudApp')
                     }]
                 }
             })
+            .state('travelRequest.edit.offeredService-new', {
+                url: '/new',
+                data: {
+                    authorities: ['ROLE_USER'],
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('offeredService');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                },
+                params: {travelRequestId: null},
+                onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+                    $uibModal.open({
+                        templateUrl: 'scripts/app/entities/offeredService/offeredService-dialog.html',
+                        controller: 'OfferedServiceDialogController',
+                        size: 'lg',
+                        resolve: {
+                            entity: function ($state) {
+                                return {
+                                    sellingPrice: null,
+                                    cost: null,
+                                    detailsId: null,
+                                    confirmationDate: null,
+                                    id: null,
+                                    travelRequest: {id: $stateParams.travelRequestId}
+                                };
+                            }
+                        }
+                    }).result.then(function(result) {
+                        $state.go('travelRequest.edit', null, { reload: true });
+                    }, function() {
+                        $state.go('travelRequest.edit');
+                    })
+                }]
+            })
 
             .state('travelRequest.new', {
                 parent: 'travelRequest',

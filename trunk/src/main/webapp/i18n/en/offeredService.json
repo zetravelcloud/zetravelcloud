@@ -4,7 +4,7 @@
             "home": {
                 "title": "OfferedServices",
                 "createLabel": "Create a new OfferedService",
-                "createOrEditLabel": "Create or edit a OfferedService",
+                "createOrEditLabel": "Add or modify an offered service",
                 "search": "Search for OfferedService"
             },
             "created": "A new OfferedService is created with identifier {{ param }}",
@@ -16,13 +16,13 @@
             "detail": {
                 "title": "OfferedService"
             },
-            "sellingPrice": "SellingPrice",
+            "sellingPrice": "Selling Price",
             "cost": "Cost",
             "detailsId": "DetailsId",
-            "confirmationDate": "ConfirmationDate",
+            "confirmationDate": "Confirmation Date",
             "currency": "Currency",
-            "offeredServiceType": "OfferedServiceType",
-            "serviceProvider": "ServiceProvider",
+            "offeredServiceType": "Offered Service Type",
+            "serviceProvider": "Service Provider",
             "travelRequest": "TravelRequest"
         }
     }

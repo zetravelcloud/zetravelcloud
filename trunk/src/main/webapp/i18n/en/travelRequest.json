@@ -2,7 +2,7 @@
     "zetravelcloudApp": {
         "travelRequest" : {
             "home": {
-                "title": "TravelRequests",
+                "title": "Travel Requests",
                 "createLabel": "Create a new TravelRequest",
                 "createOrEditLabel": "Create or edit a TravelRequest",
                 "search": "Search for TravelRequest"
@@ -14,22 +14,22 @@
                 "question": "Are you sure you want to delete TravelRequest {{ id }}?"
             },
             "detail": {
-                "title": "TravelRequest"
+                "title": "Travel Request"
             },
             "title": "Title",
             "description": "Description",
-            "checkin": "Checkin",
-            "checkout": "Checkout",
+            "checkin": "Check-in",
+            "checkout": "Check-out",
             "date": "Date",
-            "fileId": "FileId",
-            "dateSentToAccounting": "DateSentToAccounting",
+            "fileId": "File ID",
+            "dateSentToAccounting": "Date Sent To Accounting",
             "status": "Status",
-            "paymentType": "PaymentType",
-            "numOfAdults": "NumOfAdults",
-            "numOfchildren": "NumOfchildren",
+            "paymentType": "Payment Type",
+            "numOfAdults": "Number Of Adults",
+            "numOfchildren": "Number Of Children",
             "destination": "Destination",
             "client": "Client",
-            "createdBy": "CreatedBy",
+            "createdBy": "Created By",
             "addTravelerBtn": "Create Traveler",
             "travelers" : {
             	"addTraveler" : "Add traveler",
@@ -41,15 +41,14 @@
             	"title": "Offered Services",
 	            "sellingPrice": "Selling Price",
 	            "cost": "Cost",
-	            "detailsId": "DetailsId",
-	            "confirmationDate": "ConfirmationDate",
+	            "detailsId": "Details ID",
+	            "confirmationDate": "Confirmation Date",
 	            "currency": "Currency",
-	            "offeredServiceType": "OfferedServiceType",
-	            "serviceProvider": "ServiceProvider",
-	            "travelRequest": "TravelRequest",
+	            "offeredServiceType": "Offered Service Type",
+	            "serviceProvider": "Service Provider",
+	            "travelRequest": "Travel Request",
 	            "addService" : "Add service"
             }
-            
         }
     }
 }
